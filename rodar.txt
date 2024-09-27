@@ -1,0 +1,2 @@
+abra o terminal na pasta e de o seguinte comando: node App.js
+abra em qualquer navegador: http://localhost:3000
