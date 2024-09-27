@@ -6,6 +6,93 @@
 	border:0
 	}
 
+.logo {
+	width: 20%;
+}
+
+.header {
+	background-color: #2962ff; /* Example blue */
+	color: white;
+	padding: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+  
+.logofont {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+  
+.header ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+  
+.header li {
+	margin-left: 20px;
+}
+  
+.header a {
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+}
+  
+
+.centro {
+	background-image: url('assets/images/imgPInicial.png'); 
+	background-size: cover;
+	background-position: center;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: rgb(255, 255, 255);
+
+	
+}
+  
+.centro h1 {
+	font-size: 3em;
+	margin-bottom: 0.5em;
+}
+  
+.centro p {
+	font-size: 1.2em;
+	margin-bottom: 1.5em;
+}
+  
+.centro button { /*texto  do centro da tela e as marcações*/
+	padding: 10px 20px;
+	margin: 0 5px;
+	border: none;
+	border-radius: 5px;
+	background-color: #ffffff; 
+	border-radius: 40px;
+	color: rgb(30, 127, 255);
+	font-size: 1em;
+	cursor: pointer;
+}
+  
+.textocentro {
+	padding: 30px;
+	text-align: center;
+}
+.textocentro h2 {
+	font-size: 2em;
+	margin-bottom: 20px;
+}
+
+.destaque {
+	margin-top: 10%;
+	text-align: center;
+	background-color: #b6b4b4;
+}
+
 footer {
 	color: #fff;
 	padding: 20px;
