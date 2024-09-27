@@ -5,13 +5,22 @@
 	list-style:none;
 	border:0
 	}
+    
+body {
+  background-image: url("Css_IMG/imgPInicial.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #FFFFFF;
+}
+
 
 .logo {
 	width: 20%;
 }
 
 .header {
-	background-color: #2962ff; /* Example blue */
+	background-color: #2962ff; 
 	color: white;
 	padding: 15px;
 	display: flex;
@@ -40,21 +49,26 @@
 	text-decoration: none;
 }
 
+
+/*form*/
 .info-content{
     height: 515px;
     
 }
-.main-content {
+.main-content { 
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10%;
     margin-top: 3%;
- 
+    
+}
+.title {
+    text-align: center;
 }
 #form{
     
-    background: rgba(84, 103, 197, 0.82);
+    background: #2962ff;
     border-radius: 10px;
     padding: 60px;
     width: min-content;
@@ -117,9 +131,13 @@
 #btn button:hover{
     background: linear-gradient(-45deg, #eec04c, #ec7054, #ee5a57);
 }
+/*form*/
 
+
+
+
+/*footer*/
 footer {
-
 	color: #fff;
 	padding: 20px;
 	text-align: center;
@@ -145,3 +163,4 @@ footer {
 	color: #fff;
 	text-decoration: none;
 }
+/*footer*/
