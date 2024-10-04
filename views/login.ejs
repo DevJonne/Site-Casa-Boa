@@ -21,7 +21,8 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/produtos">Produtos</a></li>
-                    <li><a href="/entrar">Entrar</a></li>
+                    <li class="Headerlogin"><a href="/entrar">Entrar</a></li>
+                    <li class="Headeregistrar"><a href="/cadastrar">Cadastra-se</a></li>
                     <span class="material-symbols-outlined">
                         search
                     </span>
@@ -33,11 +34,16 @@
 
 
 
-        <div class="main-image"></div>
+
         <main class="main-content">
             <section class="info-content">
+              
                 <form id="form" action="/entrar" method="POST">
-                    <h2 class="title">Login</h2>
+                        <section class="logocentral">
+                            <h1><img src="/assets/images/logo.webp" alt="Logo do site"></h1>
+                            <p>Construindo e realizando sonhos</p>
+                            <h1>Bem vindo(a) ao Casa Boa</h1>
+                        </section>
                     <!-- Name -->
                     <label for="username">Nome</label>
                     <div class="input">
@@ -56,16 +62,27 @@
                         <i class="fas fa-lock"></i>
                         <input type="password" id="senha" name="senha" placeholder="Password" required>
                     </div>
-                    <!-- botão -->
-                    <div id="btn">
-                        <a href="/cadastrar">Cadastrar</a>
+                    <!-- botão de login -->
+                    <div id="btnLogin">
                         <button type="submit">Entrar</button>
                     </div>
+                    <!-- botão de login-->
+
+                    <!--botão para ir a tela de registrar-se-->
+                    <div id="btnRegistrar">
+                        <p><a href="/cadastrar">Não possui uma conta?
+                        <br>Cadastrar-se apertando aqui</a></p>
+                    </div>
+                    <!--botão para ir a tela de registrar-se-->
                 </form>
-                <!-- <div id="btn">
+
+                <!-- Botão antes 
+                 <div id="btn">
                     <a href="/cadastrar">Cadastrar</a> 
                     <button href="/cadastrar" type="submit">Cadastrar</button>
-                </div> -->
+                </div>
+                    Botão antes -->
+
             </section>
             <section class="emphasis-content">
                 <article class="card">
