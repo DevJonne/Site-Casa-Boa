@@ -1,6 +1,17 @@
+
+
+body {
+    background-image: url("/public/assets/images/imgPInicial.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF;
+}
+
 .info-content{
     height: 515px;
 }
+
 #form{
     position: relative;
     background: rgba(84, 103, 197, 0.82);
