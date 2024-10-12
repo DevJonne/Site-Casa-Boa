@@ -9,3 +9,91 @@
     background-position: center;
     z-index: 1;
 }
+.info-content{
+    width: 100%;
+    height: 420px;
+    position: relative;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 5vh;
+}
+
+.buttons .btn {
+    background-color: white;
+    color: #007BFF;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.btn:hover {
+    color: rgb(255, 255, 255);
+    background-color: #2962ff;
+}
+
+.featured-properties {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #adadad;
+}
+
+.featured-properties h2 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.property-cards {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.card img {
+    width: 80%;
+    border-radius: 20px;
+    margin: 20px;
+
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    color: #007BFF;
+    margin: 10px 0;
+}
+
+.btn-visit {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 1.2ms;
+}
+.btn-visit:hover {
+    background-color: #2890fffd;;
+}

@@ -7,7 +7,7 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="/styles/mainStyle.css">
     <!-- Estilo Personalizado-->
-    <link rel="stylesheet" href="/styles/styleLogin.css">
+    <link rel="stylesheet" href="/styles/styleRegister.css">
     <!-- Google material icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> 
 </head>
@@ -19,12 +19,9 @@
                 <h1 class="logo"><img src="/assets/images/logo.webp" alt="Logo do site"></h1>
                 <nav class="navigation">
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/produtos">Produtos</a></li>
-                        <li><a href="/entrar">Entrar</a></li>
-                        <span class="material-symbols-outlined">
-                            search
-                        </span>
+                        <li class="nav"><a href="/">Página Inicial</a></li>
+                        <li class="nav"><a href="/produtos">Imóveis </a></li>
+                        <li class="nav"><a href="/entrar">Entrar</a></li>
                     </ul>
                 </nav>
             </header>
@@ -32,11 +29,15 @@
 
 
 
-            <div class="main-image"></div>
             <main class="main-content">
                 <section class="info-content">
                     <form id="form" action="/entrar" method="POST">
-                        <h2 class="title">Cadastrar</h2>
+                        <section class="logocentral">
+                            <h1><img src="/assets/images/logo.webp" alt="Logo do site"></h1>
+                            <p>Construindo e realizando sonhos</p>
+                            <h1>Bem vindo(a) ao Casa Boa</h1>
+                            <h2 class="title">Cadastrar-se</h2>
+                        </section>
                         <!-- Name -->
                         <label for="username">Nome</label>
                         <div class="input">
@@ -49,16 +50,33 @@
                             <i class="far fa-envelope" aria-hidden="true"></i>
                             <input type="email" id="email" name="email" placeholder="Email" required><br>
                         </div>
+                        <label for="email">Telefone</label>
+                        <div class="input">
+                            <i class="far fa-phone" aria-hidden="true"></i>
+                            <input type="phone" id="email" name="Telefone" placeholder="Telefone" required><br>
+                        </div>
                         <!-- senha -->
                         <label for="senha">Senha</label>
                         <div class="input">
                             <i class="fas fa-lock"></i>
-                            <input type="password" id="senha" name="senha" placeholder="Password" required>
+                            <input type="password" id="senha" name="senha" placeholder="Senha" required>
                         </div>
+                        <label for="Confirmar senha">Confirmar Senha</label>
+                        <div class="input">
+                            <i class="fas fa-lock"></i>
+                            <input type="#" id="senha" name="Confrimar senha" placeholder="Confrimar Senha" required>
+                        </div>
+                        
                         <!-- botão -->
-                        <div id="btn">
-                            <a href="/cadastrar">Cadastrar</a>
-                            <button type="submit">Entrar</button>
+                        <div id="btnRegistrar">
+                            <button type="submit">Registrar-se</button>
+                        </div>
+                        <!-- botão de login-->
+    
+                        <!--botão para ir a tela de registrar-se-->
+                        <div id="btnLogin">
+                            <p><a href="/entrar">Possui uma conta?
+                            <br>Entre Clicando Aqui!</a></p>
                         </div>
                     </form>
                     <!-- <div id="btn">
@@ -72,6 +90,7 @@
                     </article>
                 </section>
             </main>
+
 
 
 <!--Footer-->
@@ -88,6 +107,8 @@
             </nav>
           </footer>
 <!--Footer-->
+
+
         </div> 
     </body>
 </html>

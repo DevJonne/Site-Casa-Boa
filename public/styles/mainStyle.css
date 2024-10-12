@@ -5,31 +5,39 @@
     text-decoration: none;
     list-style: none;
 }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 .main-container{
     width: 100%;
     position: relative;
 }
+
 .header{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
     margin: 0;
     background-color: transparent;
     z-index: 3;
     background-color: #2962ff; /* Example blue */
     width: 100%;
-
 }
+
+.profile img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
 .logo img{
     height: 3.5vw;
     width: 32vh;
     margin: 10px;
 }
-.navigation{
-    
-}
+
 .navigation ul{
     color: white;
     display: flex;
@@ -37,6 +45,12 @@
     justify-content: center;
     margin: 15px 30px 15px 0;
     
+}
+.nav {
+    transition: 0.5s;
+}
+.nav:hover {
+    color:#c0c0c0
 }
 .navigation::after{
     content: '';
@@ -53,9 +67,7 @@
     font-size: large;
     
 }
-.navigation .material-symbols-outlined {
-    font-size: 23px;
-}
+
 image::before{
     content: '';
     position: absolute;
@@ -67,51 +79,12 @@ image::before{
     z-index: 2;
 }
 
-.Headeregistrar{
-    background-color: white;
-    text-align: center;
-    align-content: center; 
-    width: 8vw;
-    height: 5vh;
-    border-radius: 40px;
-}
-.Headeregistrar a {
-    color: #2962ff;
-}
-.Headerlogin{
-    background-color: white;
-    text-align: center;
-    align-content: center;
-    width: 8vw;
-    height: 5vh;
-    border-radius: 40px;
-}
-.Headerlogin a {
-    color: #2962ff;
-}
-
-
-.info-content{
-    width: 100%;
-    height: 420px;
-    position: relative;
-    z-index: 4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
-.info-content p{
-    margin-top: -10px;
-}
-
 /* Footer */
 footer {
 	color: #fff;
 	padding: 20px;
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 30vh;
 	background: rgb(31,105,252);
 	background: linear-gradient(90deg, rgba(31,105,252,1) 0%, rgba(0,57,171,0.9178046218487395) 35%);	
 }
