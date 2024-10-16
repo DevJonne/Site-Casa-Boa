@@ -11,4 +11,6 @@
     --primary-font: white;
     --secondary-font: black;
     --tertiary-font: gray;
+    --btn-light: lightgreen;
+    --btn-dark: #648dc7;
 }
