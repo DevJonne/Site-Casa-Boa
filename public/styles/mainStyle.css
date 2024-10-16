@@ -6,7 +6,7 @@
     list-style: none;
 }
 a{
-    color: white;
+    color: var(--primary-color);
 }
 .main-container{
     width: 100%;
