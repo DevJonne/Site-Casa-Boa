@@ -141,6 +141,15 @@ footer {
     text-transform: uppercase;
 	text-align: center;
 }
+/*Aplicação de fonte da caixa Endereço e estilização*/
+.anuncios p {
+	text-align: center;
+	color: #2d5fe8;
+	text-transform: uppercase;
+	font-size: 1.1em;
+
+}
+
 /*Parte estilização Imagens*/
 .anuncioImagem{
 	height: 260px;
