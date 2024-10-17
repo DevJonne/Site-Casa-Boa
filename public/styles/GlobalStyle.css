@@ -6,11 +6,14 @@
 }
 :root{
     --primary-color: white;
-    --secondary-color: lightgreen;
+    --secondary-color: gray;
     --tertiary-color: blue;
     --primary-font: white;
     --secondary-font: black;
-    --tertiary-font: gray;
+    --tertiary-font: rgb(57, 57, 163);
     --btn-light: lightgreen;
     --btn-dark: #648dc7;
+    --btn-gradient: linear-gradient(-45deg, #648dc7, lightgreen);
+    --btn-gradient-inverse: linear-gradient(-45deg, lightgreen, #648dc7);
+    --backgroun-primary: rgb(219, 213, 213);
 }
