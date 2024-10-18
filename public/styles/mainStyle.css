@@ -84,12 +84,12 @@ image::before{
     z-index: 2;
 }
 
-/* Footer */
+/* Footer Rodapé da Pagina */
 footer {
 	color: #fff;
-	padding: 20px;
+	padding: 25px;
 	text-align: center;
-	margin-top: 30vh;
+	margin-top: 20px;
 	background: rgb(31,105,252);
 	background: linear-gradient(90deg, rgba(31,105,252,1) 0%, rgba(0,57,171,0.9178046218487395) 35%);	
 }
@@ -111,7 +111,7 @@ footer {
 	color: #fff;
 	text-decoration: none;
 }
-/* Footer */
+/* Footer Final da Estilização */
 
 /*Apos Chegar uma resolução abaixo de 460PX tag se ajustara*/
 @media (max-width: 460px){

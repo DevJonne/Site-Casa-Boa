@@ -96,19 +96,18 @@
 	margin-bottom: 9px;
 	border-radius: 5px;
 }
-/*Estilização Botao Conferir*/
+/*Estilização Botao Conferir Vendas*/
 .botaoVendas{
 	font-family: 'Poppins', sans-serif;
     background: #8bb6a3;
     width: 80%;
     height: 34px;
 	margin-top: 3px;
-    border: none;
     font-size: 1.6em;
     color: #fff;
     border-radius: 25px;
-    outline: none;
     cursor: pointer;
+	
 }
 /*Caixa Filtragem Itens da parte Inferior proxima a footer*/
 .caixaFiltragem {
