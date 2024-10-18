@@ -87,6 +87,7 @@
 .destaque {
 	text-align: center;
 	background-color: #adadad;
+	margin-bottom: 10px;
 }
 
 footer {
@@ -128,11 +129,14 @@ footer {
 	background-color: #4959ee;
 	width: 100%;
 	height: 60%;
+	margin-top: 2px;
+	margin-bottom: 25px;
+	
 }
 /*Tamanho da Caixa Principal, em volta da dos anuncios*/
 .anuncios{
 	background-color: #ebeff6;
-	height: 390px;
+	height: 380px;
 	width: 340px;
 	border-radius: 10px ;
 	margin: 10px 10px 10px 15px;
@@ -165,7 +169,7 @@ footer {
 	font-family: 'Poppins', sans-serif;
     background: #8bb6a3;
     width: 80%;
-    height: 35px;
+    height: 34px;
 	margin-top: 3px;
     border: none;
     font-size: 1.6em;
@@ -182,14 +186,15 @@ footer {
 		width: 315px;
 		align-items: center;
 		margin-right: 22px;
-		margin-left: 40px;
+		margin-left: 3px;
 		margin-right: 40px;
 		padding-bottom: 20px;
 	}
 	.anuncioImagem{
-		height: 290px;
+		height: 280px;
 	    width: 297px;
 		font-size: 8px;
+		
 	}
 	.vendasContainer{
 		max-width: 100%;
