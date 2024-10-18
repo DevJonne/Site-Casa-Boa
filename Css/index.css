@@ -18,6 +18,7 @@
 	justify-content: space-between;
 	align-items: center;
 }
+/*Atigas propriedades logo Parte superior esquerda*/
 .logofont {
 	font-size: 1.5em;
 	font-weight: bold;
@@ -83,12 +84,7 @@
 	font-size: 2em;
 	margin-bottom: 20px;
 }
-/*Divisão com descrição da caixa ao meio em destaque*/
-.destaque {
-	text-align: center;
-	background-color: #adadad;
-	margin-bottom: 10px;
-}
+
 
 footer {
 	color: #fff;

@@ -20,6 +20,7 @@
     align-items: center;
     justify-content: center;
     color: white;
+	padding: 5px;
 }
 /*Botões estilizações da parte buscar imoveis e quem somos*/
 .buttons {
@@ -75,7 +76,7 @@
     font-size: 12px;
     text-transform: uppercase;
 	text-align: center;
-    
+}
 /*Aplicação de fonte da caixa Endereço e estilização*/
 .anuncios p {
 	text-align: center;
@@ -119,17 +120,18 @@
 	.anuncios{
 	/*Na backgroud-color se color se colocar uma cor diferente, irádizer quando quebra a tela 460px quais imagenspegaram ajuste a baixo desta resolução*/
 		background-color: #ebeff6;
-		width: 315px;
+		width: 310px;
 		align-items: center;
 		margin-right: 22px;
-		margin-left: 3px;
+		margin-left: 16px;
 		margin-right: 40px;
 		padding-bottom: 20px;
 	}
 	.anuncioImagem{
 		height: 270px;
-	    width: 297px;
+	    width: 290px;
 		font-size: 8px;
+        padding-top: 8px;
 		
 	}
 	.vendasContainer{
@@ -137,4 +139,3 @@
     }
 	
 }
-

@@ -9,6 +9,7 @@ a {
     text-decoration: none;
     color: inherit;
 }
+/*Caixa principal Externa Casa Boa*/
 .main-container{
     width: 100%;
     position: relative;
@@ -20,30 +21,34 @@ a {
     align-items: center;
     justify-content: space-between;
     margin: 0;
+    padding: 3px;
     background-color: transparent;
     z-index: 3;
     background-color: #2962ff; /* Example blue */
     width: 100%;
 }
-
+/*Iconizinho do Perfil*/
 .profile img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-}
-
-.logo img{
-    height: 3.5vw;
-    width: 32vh;
     margin: 10px;
 }
+/*Aqui fica a parte superior esquerda do logo pequeno "Casa Boa" manipulação  */
+.logo img{
+   width: 50%;
+   margin: 10px;
+   padding: 2px;
+}
 
+/*Começo das propriedas Tag de "Navegação da pagina" */
 .navigation ul{
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 15px 30px 15px 0;
+    display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+    margin: 3px;
     
 }
 .nav {
@@ -107,3 +112,27 @@ footer {
 	text-decoration: none;
 }
 /* Footer */
+
+/*Apos Chegar uma resolução abaixo de 460PX tag se ajustara*/
+@media (max-width: 460px){
+	.logo img{
+        width: 90%;
+        margin: 5px;
+        padding: 2px;
+        padding-right: 7px;
+     }
+     .navigation ul{
+        padding-top: 10px;
+        padding-bottom: 2px;
+        padding-left: 3px;
+        color: white;
+        margin: 15px 30px 15px 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 3px;
+        
+    }
+
+}
+
