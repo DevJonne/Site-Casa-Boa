@@ -40,6 +40,16 @@
                 <section class="categorias">
                     <h3 class="titulo-categorias">Apartamentos disponíves para venda</h3>
                     <div class="conteudo-categorias">
+                        <% apartamentos.forEach(function(apartamento){ %>
+                            <article class="card-categorias">
+                                <img src="../assets/images/imagem-exemplo.jpeg" 
+                                    alt="Imagem para visualização prévia">
+                                <div class="conteudo-card">
+                                    <p><%= apartamento.Descricao %></p>
+                                </div>
+                                <button class="btn-card">Visitar</button>
+                            </article> 
+                            <% }); %> <!-- 
                         <article class="card-categorias">
                             <img src="../assets/images/imagem-exemplo.jpeg" 
                                 alt="Imagem para visualização prévia">
@@ -71,21 +81,24 @@
                                 <p>Descrição do imóvel...</p>
                             </div>
                             <button class="btn-card">Visitar</button>
-                        </article>
-                        <article class="card-categorias">
-                            <img src="../assets/images/imagem-exemplo.jpeg" 
-                                alt="Imagem para visualização prévia">
-                            <div class="conteudo-card">
-                                <p>Descrição do imóvel...</p>
-                            </div>
-                            <button class="btn-card">Visitar</button>
-                        </article>
+                        </article> -->
                     </div>
                 </section>
             </main>
+            <!--Footer-->
             <footer>
-                <p>&copy; 2024 Meu Site</p>
+                <p>&copy; 2023 - Todos os direitos reservados</p>
+
+                <nav class="footer">
+                    <ul>
+                        <li><a href="#">Termos de uso</a></li>
+                        <li><a href="#">Política de privacidade</a></li>
+                        <li><a href="#">Sobre nós</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </nav>
             </footer>
+        <!--Footer-->
         </div> 
     </body>
 </html>

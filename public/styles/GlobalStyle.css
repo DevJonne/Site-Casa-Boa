@@ -15,5 +15,6 @@
     --btn-dark: #648dc7;
     --btn-gradient: linear-gradient(-45deg, #648dc7, lightgreen);
     --btn-gradient-inverse: linear-gradient(-45deg, lightgreen, #648dc7);
-    --backgroun-primary: rgb(219, 213, 213);
+    --background-primary: rgb(219, 213, 213);
+    --background-secondary: #245c04;
 }
