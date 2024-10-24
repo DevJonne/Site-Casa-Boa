@@ -1,0 +1,214 @@
+* {
+	padding:0;
+	margin:0;
+	vertical-align:baseline;
+	list-style:none;
+	border:0;
+	}
+
+.logo {
+	width: 20%;
+}
+
+.header {
+	background-color: #2962ff; /* Example blue */
+	color: white;
+	padding: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+/*Atigas propriedades logo Parte superior esquerda*/
+.logofont {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+  
+.header ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+  
+.header li {
+	margin-left: 20px;
+}
+  
+.header a {
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+}
+  
+
+.centro {
+	background-image: url('Css_IMG/imgPInicial.png'); 
+	background-size: cover;
+	background-position: center;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: rgb(255, 255, 255);
+}
+  
+.centro h1 {
+	font-size: 3em;
+	margin-bottom: 0.5em;
+}
+  
+.centro p {
+	font-size: 1.2em;
+	margin-bottom: 1.5em;
+}
+  
+.centro button { /*texto  do centro da tela e as marcações*/
+	padding: 10px 20px;
+	margin: 0 5px;
+	border: none;
+	border-radius: 5px;
+	background-color: #ffffff; 
+	border-radius: 40px;
+	color: rgb(30, 127, 255);
+	font-size: 1em;
+	cursor: pointer;
+}
+  
+.textocentro {
+	padding: 30px;
+	text-align: center;
+}
+.textocentro h2 {
+	font-size: 2em;
+	margin-bottom: 20px;
+}
+
+
+footer {
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+	margin-top: 50px;
+	background: rgb(31,105,252);
+	background: linear-gradient(90deg, rgba(31,105,252,1) 0%, rgba(0,57,171,0.9178046218487395) 35%);	
+}
+
+.footer ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.footer li {
+	display: inline-block;
+	margin: 0 10px;
+	padding: 0px;
+	margin-top: 15px;
+}
+.footer a {
+	color: #fff;
+	text-decoration: none;
+}
+/*Caixa Filtragem Itens da parte Inferior proxima a footer*/
+.caixaFiltragem {
+	background-color: #adadad;
+
+}
+/* Caixa Anuncios Estilizaçoes, SE EU TROCAR A COR CONSIGO VER O TAMANHO DA DIV ATRAS*/
+.vendasContainer{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #4959ee;
+	width: 100%;
+	height: 60%;
+	margin-top: 2px;
+	margin-bottom: 25px;
+	
+}
+/*Tamanho da Caixa Principal, em volta da dos anuncios*/
+.anuncios{
+	background-color: #ebeff6;
+	height: 380px;
+	width: 340px;
+	border-radius: 10px ;
+	margin: 10px 10px 10px 15px;
+	color: #2d5fe8;
+    font-size: 12px;
+    text-transform: uppercase;
+	text-align: center;
+}
+/*Aplicação de fonte da caixa Endereço e estilização*/
+.anuncios p {
+	text-align: center;
+	color: #2d5fe8;
+	text-transform: uppercase;
+	font-size: 1.1em;
+
+}
+
+/*Parte estilização Imagens*/
+.anuncioImagem{
+	height: 260px;
+	max-width: 320px;
+	margin-top: 10px;
+	margin-left: 7px;
+	margin-right: 7px;
+	margin-bottom: 9px;
+	border-radius: 5px;
+}
+/*Estilização Botao Conferir*/
+.botaoVendas{
+	font-family: 'Poppins', sans-serif;
+    background: #8bb6a3;
+    width: 80%;
+    height: 34px;
+	margin-top: 3px;
+    border: none;
+    font-size: 1.6em;
+    color: #fff;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+}
+   /*Ajustes de otimização de tela quando cair abaixo resolução para 536px para Smartfhones*/
+@media (max-width: 460px){
+	.anuncios{
+	/*Na backgroud-color se color se colocar uma cor diferente, irádizer quando quebra a tela 460px quais imagenspegaram ajuste a baixo desta resolução*/
+		background-color: #ebeff6;
+		width: 315px;
+		align-items: center;
+		margin-right: 22px;
+		margin-left: 3px;
+		margin-right: 40px;
+		padding-bottom: 20px;
+	}
+	.anuncioImagem{
+		height: 280px;
+	    width: 297px;
+		font-size: 8px;
+		
+	}
+	.vendasContainer{
+		max-width: 100%;
+	}
+	
+}
+
+/*Jony Estilização de botao visitas da div Opcional para colocar*/
+.btn-visit {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 1.2ms;
+}
+.btn-visit:hover {
+    background-color: #2890fffd;;
+}

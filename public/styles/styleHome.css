@@ -9,6 +9,7 @@
     background-position: center;
     z-index: 1;
 }
+/*Classe da Imagem de plano de fundo da parte de Cima*/
 .info-content{
     width: 100%;
     height: 420px;
@@ -19,9 +20,9 @@
     align-items: center;
     justify-content: center;
     color: white;
+	padding: 5px;
 }
-
-
+/*Botões estilizações da parte buscar imoveis e quem somos*/
 .buttons {
     display: flex;
     justify-content: center;
@@ -42,58 +43,98 @@
     color: rgb(255, 255, 255);
     background-color: #2962ff;
 }
+/*Botões estilizações da parte buscar imoveis e quem somos*/
 
-.featured-properties {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #adadad;
+/*<Divisao Da listra em Destaque cinza*/
+.destaque {
+	text-align: center;
+	background-color: #adadad;
+	margin-bottom: 8px;
 }
 
-.featured-properties h2 {
-    font-size: 24px;
-    color: #ffffff;
-    margin-bottom: 40px;
+/* Caixa Anuncios Estilizaçoes, SE EU TROCAR A COR CONSIGO VER O TAMANHO DA DIV ATRAS*/
+.vendasContainer{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #4959ee;
+	width: 100%;
+	height: 60%;
+	margin-top: 2px;
+	margin-bottom: 25px;
+	
+}
+/*Tamanho da Caixa Principal, em volta da dos anuncios*/
+.anuncios{
+	background-color: #ebeff6;
+	height: 380px;
+	width: 340px;
+	border-radius: 10px ;
+	margin: 10px 10px 10px 15px;
+	color: #2d5fe8;
+    font-size: 12px;
+    text-transform: uppercase;
+	text-align: center;
+}
+/*Aplicação de fonte da caixa Endereço e estilização*/
+.anuncios p {
+	text-align: center;
+	color: #2d5fe8;
+	text-transform: uppercase;
+	font-size: 1.1em;
+
 }
 
-.property-cards {
-    display: flex;
-    justify-content: space-around;
+/*Parte estilização Imagens*/
+.anuncioImagem{
+	height: 260px;
+	max-width: 320px;
+	margin-top: 10px;
+	margin-left: 7px;
+	margin-right: 7px;
+	margin-bottom: 9px;
+	border-radius: 5px;
 }
-
-.card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-}
-
-.card img {
+/*Estilização Botao Conferir Vendas*/
+.botaoVendas{
+	font-family: 'Poppins', sans-serif;
+    background: #8bb6a3;
     width: 80%;
-    border-radius: 20px;
-    margin: 20px;
-
-}
-
-.card-info {
-    padding: 20px;
-}
-
-.card-info h3 {
-    color: #007BFF;
-    margin: 10px 0;
-}
-
-.btn-visit {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    height: 34px;
+	margin-top: 3px;
+    font-size: 1.6em;
+    color: #fff;
+    border-radius: 25px;
     cursor: pointer;
-    margin-top: 20px;
-    transition: 1.2ms;
+	
 }
-.btn-visit:hover {
-    background-color: #2890fffd;;
+/*Caixa Filtragem Itens da parte Inferior proxima a footer*/
+.caixaFiltragem {
+	background-color: #adadad;
+}
+/*Divisão com descrição da caixa ao meio em destaque*/
+   /*Ajustes de otimização de tela quando cair abaixo resolução para 536px para Smartfhones*/
+@media (max-width: 460px){
+	.anuncios{
+	/*Na backgroud-color se color se colocar uma cor diferente, irádizer quando quebra a tela 460px quais imagenspegaram ajuste a baixo desta resolução*/
+		background-color: #ebeff6;
+		width: 310px;
+		align-items: center;
+		margin-right: 22px;
+		margin-left: 16px;
+		margin-right: 40px;
+		padding-bottom: 20px;
+	}
+	.anuncioImagem{
+		height: 270px;
+	    width: 290px;
+		font-size: 8px;
+        padding-top: 8px;
+		
+	}
+	.vendasContainer{
+		max-width: 100%;
+    }
+	
 }
