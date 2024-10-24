@@ -16,9 +16,9 @@ class Usuario {
         });
     }
 
-    static createUser(nome, email, senha, cpf, callback){
+    static createUser(nome, email, senha, telefone, callback){
         pool.query('INSERT INTO usuario(nome, email, senha, cpf) VALUES (?, ?, ?, ?)',
-            [nome, email, senha, cpf], (err, results) => {
+            [nome, email, senha, telefone], (err, results) => {
                 if(err) throw err;
                 callback(results);
             }
