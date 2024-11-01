@@ -5,9 +5,9 @@ exports.showLogin = (req, res) => {
 };
 
 exports.login = (req, res) => {
-    const { email, senha } = req.body;
+    const { telefone, senha } = req.body;
 
-    Usuario.findByEmail(email, (usuario) => {
+    Usuario.findByEmail(telefone, (usuario) => {
         if(usuario && usuario.senha === senha){
             res.send('Login bem-sucedido!');
         }else{
@@ -17,12 +17,17 @@ exports.login = (req, res) => {
 };
 
 exports.showRegister = (req, res) => {
-    res.render('register');
-}
+    const erro = req.query.erro === 'true'; // Verifica se o erro é passado na query
+    res.render('register', { erro }); // Passa o erro para a página EJS
+};
 
 exports.register = (req, res) => {
-    const { nome, email, senha, cpf } = req.body;
-    Usuario.createUser(nome, email, senha, cpf, () => {
-        res.send('Usuário cadastrado com sucesso!');
+    const { nome, telefone, senha } = req.body;
+    Usuario.createUser(nome, telefone, senha, (results) => {
+        if (results) { // Agora `results` é passado como argumento
+            res.redirect('/entrar');
+        } else {
+            res.redirect('/cadastrar?erro=true');
+        }
     });
 };

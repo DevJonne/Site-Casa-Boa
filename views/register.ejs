@@ -31,29 +31,29 @@
 
             <main class="main-content">
                 <section class="info-content">
-                    <form id="form" action="/entrar" method="POST">
+                    <form id="form" action="/cadastrar" method="POST">
                         <section class="logocentral">
                             <h1><img src="/assets/images/logo.webp" alt="Logo do site"></h1>
                             <p>Construindo e realizando sonhos</p>
                             <h1>Bem vindo(a) ao Casa Boa</h1>
                             <h2 class="title">Cadastrar-se</h2>
                         </section>
-                        <!-- Name -->
-                        <label for="username">Nome</label>
+                        <!-- Nome -->
+                        <label for="nome">Nome</label>
                         <div class="input">
                             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                            <input type="text" name="username" id="username" placeholder="Username" required>
+                            <input type="text" name="nome" id="nome" placeholder="Nome" required>
                         </div>
                         <!-- email -->
                         <label for="email">Email</label>
                         <div class="input">
                             <i class="far fa-envelope" aria-hidden="true"></i>
-                            <input type="email" id="email" name="email" placeholder="Email" required><br>
+                            <input type="email" id="email" name="email" placeholder="Email"><br>
                         </div>
-                        <label for="Telefone">Telefone</label>
+                        <label for="telefone">Telefone</label>
                         <div class="input">
                             <i class="far fa-phone" aria-hidden="true"></i>
-                            <input type="phone" id="telefone" name="telefone" placeholder="telefone" required><br>
+                            <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required><br>
                         </div>
                         <!-- senha -->
                         <label for="senha">Senha</label>
@@ -61,19 +61,21 @@
                             <i class="fas fa-lock"></i>
                             <input type="password" id="senha" name="senha" placeholder="Senha" required>
                         </div>
-                 
+
+                        <% if (erro) { %>
+                            <p class="erro">Erro ao cadastrar usuário. Tente novamente.</p>
+                        <% } %>
                         <!-- botão -->
                         <div id="btnRegistrar">
                             <button type="submit">Registrar-se</button>
                         </div>
                         <!-- botão de login-->
-    
-                        <!--botão para ir a tela de registrar-se-->
                         <div id="btnLogin">
                             <p><a href="/entrar">Possui uma conta?
                             <br>Entre Clicando Aqui!</a></p>
                         </div>
                     </form>
+                    
                     <!-- <div id="btn">
                         <a href="/cadastrar">Cadastrar</a> 
                         <button href="/cadastrar" type="submit">Cadastrar</button>

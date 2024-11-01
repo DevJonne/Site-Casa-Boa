@@ -9,21 +9,24 @@ const pool = mysql.createPool({
 });
 
 class Usuario {
-    static findByEmail(email, callback){
-        pool.query('SELECT * FROM usuario WHERE email = ?', [email], (err, results) => {
+    static findByEmail(telefone, callback){
+        pool.query('SELECT * FROM Cadastro WHERE telefone = ?', [telefone], (err, results) => {
             if(err) throw err;
             callback(results[0]);
         });
     }
 
-    static createUser(nome, email, senha, telefone, callback){
-        pool.query('INSERT INTO usuario(nome, email, senha, cpf) VALUES (?, ?, ?, ?)',
-            [nome, email, senha, telefone], (err, results) => {
-                if(err) throw err;
-                callback(results);
+    static createUser(nome, telefone, senha, callback) {
+        pool.query('INSERT INTO Cadastro(nome, telefone, senha) VALUES (?, ?, ?)',
+            [nome, telefone, senha], (err, results) => {
+                if (err) {
+                    console.error(err); // Log do erro
+                    return callback(null); // Chama o callback com null em caso de erro
+                }
+                callback(results); // Chama o callback com o resultado
             }
         );
     }
 }
-
+ 
 module.exports = Usuario;
