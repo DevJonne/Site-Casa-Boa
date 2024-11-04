@@ -69,3 +69,6 @@
 #btn button:hover, #btn a:hover{
     background: linear-gradient(-45deg, #eec04c, #ec7054, #ee5a57);
 }
+footer{
+    margin-top: 16px;
+}
