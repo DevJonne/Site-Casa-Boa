@@ -37,53 +37,26 @@
                         <button class="btn-quemSomos"><a href="#sobre">Quem somos</a></button>
                     </div>
                 </section>
-                <section class="categorias">
-                    <h3 class="titulo-categorias">Apartamentos disponíves para venda</h3>
-                    <div class="conteudo-categorias">
-                        <% apartamentos.forEach(function(apartamento){ %>
-                            <article class="card-categorias">
-                                <img src="../assets/images/imagem-exemplo.jpeg" 
-                                    alt="Imagem para visualização prévia">
-                                <div class="conteudo-card">
-                                    <p><%= apartamento.Descricao %></p>
-                                </div>
-                                <button class="btn-card">Visitar</button>
-                            </article> 
-                            <% }); %> <!-- 
-                        <article class="card-categorias">
-                            <img src="../assets/images/imagem-exemplo.jpeg" 
-                                alt="Imagem para visualização prévia">
-                            <div class="conteudo-card">
-                                <p>Descrição do imóvel...</p>
-                            </div>
-                            <button class="btn-card">Visitar</button>
-                        </article>
-                        <article class="card-categorias">
-                            <img src="../assets/images/imagem-exemplo.jpeg" 
-                                alt="Imagem para visualização prévia">
-                            <div class="conteudo-card">
-                                <p>Descrição do imóvel...</p>
-                            </div>
-                            <button class="btn-card">Visitar</button>
-                        </article>
-                        <article class="card-categorias">
-                            <img src="../assets/images/imagem-exemplo.jpeg" 
-                                alt="Imagem para visualização prévia">
-                            <div class="conteudo-card">
-                                <p>Descrição do imóvel...</p>
-                            </div>
-                            <button class="btn-card">Visitar</button>
-                        </article>
-                        <article class="card-categorias">
-                            <img src="../assets/images/imagem-exemplo.jpeg" 
-                                alt="Imagem para visualização prévia">
-                            <div class="conteudo-card">
-                                <p>Descrição do imóvel...</p>
-                            </div>
-                            <button class="btn-card">Visitar</button>
-                        </article> -->
-                    </div>
-                </section>
+                <% categoriasComImoveis.forEach(item => { %>
+                    <section class="categorias categoria-<%= item.categoria.Nome.toLowerCase() %>">
+                        <h3 class="titulo-categorias"><%= item.categoria.Nome %> disponíves para venda</h3>
+                        <div class="conteudo-categorias" id="conteudo-<%= item.categoria.idCategorias %>">
+                            <% item.imoveis.forEach(imovel => { %>
+                                <article class="card-categorias">
+                                    <img src="../assets/images/imagem-exemplo.jpeg" 
+                                        alt="Imagem para visualização prévia">
+                                    <div class="conteudo-card">
+                                        <p><%= imovel.Descricao %></p>
+                                    </div>
+                                    <button class="btn-card">Visitar</button>
+                                </article> 
+                            <% }); %> 
+                        </div>
+                            <% if (item.imoveis.length > 3) { %>
+                                <button onclick="verMais(<%= item.categoria.idCategorias %>)" class="btn-card btn-ver-mais">Ver mais</button>
+                            <% } %>
+                    </section>
+                <% }); %>          
                 <section id="sobre">
                     <article class="left">
                         <h2 class="titulo-sobre">Focamos em oferecer profissionalismo e competência</h2>
@@ -125,4 +98,5 @@
         <!--Footer-->
         </div> 
     </body>
+    <script src="/scripts/btnVerMais.js"></script>
 </html>
