@@ -4,8 +4,8 @@ const homeController = require('../controllers/cardsController');
 
 router.get('/', homeController.renderHome);
 
-router.get('/produtos', (req, res) => {
-    res.render('produtos');
+router.get('/faleConosco', (req, res) => {
+    res.render('faleConosco');
 });
 
 module.exports = router;

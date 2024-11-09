@@ -3,7 +3,7 @@ function verMais(categoriaId){
     const items = [...container.querySelectorAll('.card-categorias')];
     const button = document.querySelector(`[onclick="verMais(${categoriaId})"]`);
 
-    const isExpanded = items.slice(3).every(item => !item.classList.contains('hidden'))
+    const isExpanded = items.slice(3).every(item => !item.classList.contains('hidden'));
 
     if(isExpanded){
         items.slice(3).forEach(item => item.classList.add('hidden'));
