@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
-const usuarioRoutes = require('./routes/usuarioRoutes');
+const clienteRoutes = require('./routes/clienteRoutes');
 const mainRoutes = require('./routes/mainRoutes');
 
 dotenv.config();
@@ -16,7 +16,7 @@ app.use(express.static('public'));
 
 //Rotas
 app.use('/', mainRoutes);
-app.use('/', usuarioRoutes);
+app.use('/', clienteRoutes);
 
 const PORT = process.env.PORT || 3000;
 
