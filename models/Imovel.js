@@ -27,7 +27,20 @@ class Imovel {
             });
         });
     }
-    
+
+    static getFavoritosPorCliente(idCliente){
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT Imoveis.* FROM Imoveis
+                JOIN Favoritos ON Imoveis.idImovel = Favoritos.idImovel
+                WHERE Favoritos.idCliente = ?;
+            `;
+            db.query(query, [idCliente], (err, results) => {
+                if(err) return reject(err);
+                resolve(results);
+            });
+        });
+    }
 }
 
 module.exports = Imovel;

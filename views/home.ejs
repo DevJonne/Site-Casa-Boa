@@ -19,7 +19,18 @@
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/faleConosco">Contate-nos</a></li>
-                        <li><a href="/entrar">Entrar</a></li>
+                        <% if(user){ %>
+                            <% if (user.tipo === "administrador"){ %>
+                                <li><a href="/admin">Admin</a></li>
+                            <% }else if(user.tipo === 'agente'){ %>
+                                <li><a href="/agente">Agente</a></li>
+                            <% }else if(user.tipo === 'cliente'){ %>
+                                <li><a href="/cliente">Cliente</a></li>
+                            <% } %>
+                            <li><a href="logout">Sair</a></li>
+                        <% }else{ %>
+                            <li><a href="/entrar">Entrar</a></li>
+                        <% } %>
                         <span class="material-symbols-outlined">
                             search
                         </span>
@@ -48,6 +59,12 @@
                                         <p><%= imovel.Descricao %></p>
                                     </div>
                                     <button class="btn-card">Visitar</button>
+                                    <% if(user && user.tipo === 'cliente'){ %>
+                                        <form action="/favoritar" method="POST">
+                                            <input type="hidden" name="idImovel" value="<% imovel.idImovel %>">
+                                            <button type="submit" class="btn-card">Favoritar</button>
+                                        </form>
+                                    <% } %>
                                 </article> 
                             <% }); %> 
                         </div>

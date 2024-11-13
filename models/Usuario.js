@@ -17,6 +17,14 @@ class Usuario {
         });
     }
 
+    static findById(id, callback){
+        const query = 'SELECT * FROM Usuarios WHERE idUsuario = ?;';
+        db.query(query, [id], (err, results) => {
+            if(err) return callback(err);
+            callback(null, results[0]);
+        });
+    }
+
     static createUser(email, senha, tipo, nome, callback){
         const query = 'INSERT INTO Usuarios (email, senha, tipo, nome) VALUES (?, ?, ?, ?);';
 
