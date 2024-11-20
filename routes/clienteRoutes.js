@@ -7,10 +7,11 @@ router.post('/login', clienteController.login);
 
 router.get('/cliente', clienteController.isAuthenticated, clienteController.renderCliente);
 router.get('/logout', clienteController.logout);
+//alterar
 router.post('/favoritar', clienteController.isAuthenticated, clienteController.favoritarImovel);
 
-router.get('/entrar', clienteController.showLogin);
-router.post('/entrar', clienteController.login);
+//router.get('/entrar', clienteController.showLogin);
+//router.post('/entrar', clienteController.login);
 
 router.get('/cadastrar', clienteController.showRegister);
 router.post('/cadastrar', clienteController.register);

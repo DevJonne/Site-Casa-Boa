@@ -24,6 +24,37 @@ class Cliente extends Usuario{
             });
         });
     }
+
+    /**/static getIdClienteByUsuario(idUsuario, callback){
+        const query = 'SELECT idCliente FROM Clientes WHERE idUsuario = ?;';
+
+        db.query(query, [idUsuario], (err, results) => {
+            if(err) return callback(err, null);
+            if(results.lenght === 0) return callback(new Error('Cliente não encontrado'), null);
+            callback(null, results[0].idCliente);
+        });
+    }
+
+    static getIdClientePorIdUsuario(idUsuario){
+        return new Promise((resolve, reject) => {
+            const query = 'SELECT idCliente FROM Clientes WHERE idUsuario = ?;';
+            db.query(query, [idUsuario], (err, results) => {
+                if(err) return reject(err);
+                if(results.lenght === 0) return callback(new Error('Cliente não encontrado'));
+                resolve(results[0].idCliente);
+            });
+        });  
+    }
+
+    static addFavorito(idCliente, idImovel, callback){
+            db.query('INSERT INTO Favoritos (idCliente, idImovel) VALUES (?, ?);',
+            [idCliente, idImovel],
+            (err, results) => {
+                if(err) throw err;
+                callback(null, results);    
+            }
+        );
+    }
 }
 
 module.exports = Cliente;

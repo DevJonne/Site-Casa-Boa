@@ -4,10 +4,6 @@ const bcrypt = require('bcryptjs');
 const Cliente = require('../models/Cliente');
 const Imovel = require('../models/Imovel');
 
-exports.showLogin = (req, res) => {
-    res.render('login');
-};
-
 exports.login = passport.authenticate('local', {
     successRedirect: '/cliente',
     failureRedirect: '/entrar',
@@ -44,23 +40,44 @@ exports.register = (req, res) => {
         });
     });
 };
-
+//alterar
 exports.favoritarImovel = (req, res) => {
     const idCliente = req.user.idUsuario;
+    console.log('Dados recebidos: ', req.body);
     const { idImovel } = req.body;
 
-    db.query('INSERT INTO Favoritos (idCliente, idImovel) VALUES (?, ?);',
-        [idCliente, idImovel],
-        (err) => {
-            if(err) throw err;
-            res.redirect('/cliente');    
+    // Validação do valor de idImovel
+    if (!idImovel || isNaN(parseInt(idImovel))) {
+        return res.status(400).send('ID do imóvel inválido.');
+    }
+
+    Cliente.getIdClienteByUsuario(idCliente, (err, idCliente) => {
+        if(err){
+            console.error(err);
+            return res.status(500).send('Erro ao buscar o cliente');
         }
-    );
+
+        //Adicionar o favorito com o idCliente
+        Cliente.addFavorito(idCliente, parseInt(idImovel), (err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).send('Erro ao favoritar imóvel.');
+            }
+            res.redirect('/cliente');
+        });
+    });
 };
 
+
 exports.renderCliente = (req, res) => {
-    Imovel.getFavoritosPorCliente(req.user.idUsuario)
+    const idUsuario = req.user.idUsuario;
+
+    Cliente.getIdClientePorIdUsuario(idUsuario)
+        .then(idCliente => {
+            return Imovel.getFavoritosPorCliente(idCliente)
+        })
         .then(imoveisFavoritos => {
+            console.log('Favoritos encontrados:', imoveisFavoritos);
             res.render('cliente', { user: req.user, imoveisFavoritos });
         })
         .catch(err => {
