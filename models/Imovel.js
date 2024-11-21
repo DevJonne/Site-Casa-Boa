@@ -5,9 +5,12 @@ class Imovel {
         return new Promise((resolve, reject) => {
             //Busca todas as categorias
             const categoriasQuery = 'SELECT * FROM Categorias;';
-
+            console.log('Executando query para getCategoriasComImoveis:', categoriasQuery);
             db.query(categoriasQuery, (err, categorias) => {
-                if(err) return reject(err);
+                if(err){ 
+                    console.error('Erro na query getCategoriasComImoveis:', err);
+                    return reject(err);
+                }
 
                 //Para cada categoria, busca os imóveis relacionados
                 const promises = categorias.map(categoria => {
@@ -28,7 +31,7 @@ class Imovel {
         });
     }
 
-    static getFavoritosPorCliente(idCliente){
+    /*static getFavoritosPorCliente(idCliente){
         return new Promise((resolve, reject) => {
             const query = `
                 SELECT Imoveis.* FROM Imoveis
@@ -39,6 +42,18 @@ class Imovel {
                 if(err) return reject(err);
                 resolve(results);
             });
+        });
+    }*/
+   
+    static getFavoritosPorCliente(idCliente, callback){
+        const query = `
+            SELECT Imoveis.* FROM Imoveis
+            JOIN Favoritos ON Imoveis.idImovel = Favoritos.idImovel
+            WHERE Favoritos.idCliente = ?;
+        `;
+        db.query(query, [idCliente], (err, results) => {
+            if(err) return callback(err, null);
+            callback(null, results);
         });
     }
 }

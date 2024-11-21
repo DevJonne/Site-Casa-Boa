@@ -9,6 +9,7 @@ router.get('/cliente', clienteController.isAuthenticated, clienteController.rend
 router.get('/logout', clienteController.logout);
 //alterar
 router.post('/favoritar', clienteController.isAuthenticated, clienteController.favoritarImovel);
+router.post('/removerFavorito', clienteController.isAuthenticated, clienteController.desfavoritarImovel);
 
 //router.get('/entrar', clienteController.showLogin);
 //router.post('/entrar', clienteController.login);
