@@ -59,31 +59,31 @@
                                         <p><%= imovel.Descricao %></p>
                                     </div>
                                     <div class="botoes">
-                                    <button class="btn-card">Visitar</button>
-                                    <% if(user && user.tipo === 'cliente'){ %>
-                                        <% const favoritado = imoveisFavoritos.some(fav => fav.idImovel === imovel.idImovel); %>
-                                        <% if(favoritado) { %> 
-                                            <!-- Botão para desfavoritar -->
-                                            <form class="form-favoritar" action="/removerFavorito" method="POST">
-                                                <input type="hidden" name="idImovel" value="<%= imovel.idImovel %>">
-                                                <button type="submit">
-                                                    <span class="btn-favoritar true">
-                                                        &#9829;
-                                                    </span>
-                                                </button> <!-- RemoverFavorito -->
-                                            </form>
-                                        <% } else{ %>
-                                            <!-- Botão para favoritar -->
-                                            <form class="form-favoritar" action="/favoritar" method="POST">
-                                                <input type="hidden" name="idImovel" value="<%= imovel.idImovel %>">
-                                                <button type="submit">
-                                                    <span class="btn-favoritar false">
-                                                        &#9829;
-                                                    </span>
-                                                </button><!-- Favoritar -->
-                                            </form>
+                                        <button class="btn-card">Visitar</button>
+                                        <% if(user && user.tipo === 'cliente'){ %>
+                                            <% const favoritado = imoveisFavoritos.some(fav => fav.idImovel === imovel.idImovel); %>
+                                            <% if(favoritado) { %> 
+                                                <!-- Botão para desfavoritar -->
+                                                <form class="form-favoritar" action="/removerFavorito" method="POST">
+                                                    <input type="hidden" name="idImovel" value="<%= imovel.idImovel %>">
+                                                    <button type="submit">
+                                                        <span class="btn-favoritar true">
+                                                            &#9829;
+                                                        </span>
+                                                    </button> <!-- RemoverFavorito -->
+                                                </form>
+                                            <% } else{ %>
+                                                <!-- Botão para favoritar -->
+                                                <form class="form-favoritar" action="/favoritar" method="POST">
+                                                    <input type="hidden" name="idImovel" value="<%= imovel.idImovel %>">
+                                                    <button type="submit">
+                                                        <span class="btn-favoritar false">
+                                                            &#9829;
+                                                        </span>
+                                                    </button><!-- Favoritar -->
+                                                </form>
+                                            <% } %>
                                         <% } %>
-                                    <% } %>
                                     </div>
                                 </article> 
                             <% }); %> 
@@ -122,8 +122,6 @@
                     </article>
                 </section>
             </main>
-            <span style="color: #F50E36;">&#9829;</span>
-            <span style="color: #827184;">&#9829;</span>
             <!--Footer-->
             <%- include('./layouts/footer'); %>
             <!--Footer-->

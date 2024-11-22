@@ -55,11 +55,18 @@
                                     <div class="conteudo-card">
                                         <p><%= imovel.Descricao %></p>
                                     </div>
-                                    <button class="btn-card">Visitar</button>
-                                    <form action="/removerFavorito" method="POST">
-                                        <input type="hidden" name="idImovel" value="<%= imovel.idImovel %>">
-                                        <button type="submit">Remover dos favoritos</button>
-                                    </form>
+                                    <div class="botoes">
+                                        <button class="btn-card">Visitar</button>
+                                        <form class="form-favoritar" action="/removerFavorito" method="POST">
+                                            <input type="hidden" name="idImovel" value="<%= imovel.idImovel %>">
+                                            <button type="submit">
+                                                <span class="btn-favoritar">
+                                                    &#9829;
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    
                                 </article>
                             <% }); %>
                         </div>

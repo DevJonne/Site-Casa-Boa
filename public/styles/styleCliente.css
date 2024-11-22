@@ -53,3 +53,17 @@
     transition: all 0.4s ease-in-out;
     background: var(--btn-light);
 }
+.botoes{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form-favoritar button{
+    background-color: transparent;
+}
+.btn-favoritar{
+    font-size: 30px;
+    margin-left: 10px;
+    color: #F50E36;
+}
