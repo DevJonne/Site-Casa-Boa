@@ -11,9 +11,6 @@ router.get('/logout', clienteController.logout);
 router.post('/favoritar', clienteController.isAuthenticated, clienteController.favoritarImovel);
 router.post('/removerFavorito', clienteController.isAuthenticated, clienteController.desfavoritarImovel);
 
-//router.get('/entrar', clienteController.showLogin);
-//router.post('/entrar', clienteController.login);
-
 router.get('/cadastrar', clienteController.showRegister);
 router.post('/cadastrar', clienteController.register);
 

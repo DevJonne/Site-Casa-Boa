@@ -1,0 +1,63 @@
+<nav class="navigation">
+    <ul>
+        <li>
+            <% if(currentRoute === '/'){ %> 
+                Home
+            <% } else { %>
+                <a href="/">Home</a>
+            <% } %>
+        </li>
+        <li>
+            <% if(currentRoute === '/faleConosco'){ %> 
+                Contate-nos
+            <% } else { %>
+                <a href="/faleConosco">Contate-nos</a>
+            <% } %>
+        </li>
+        <% if(user){ %>
+            <% if(user.tipo === 'administrador'){ %>
+                <li>
+                    <% if(currentRoute === '/admin'){ %> 
+                        Admin
+                    <% } else { %>
+                        <a href="/admin">Admin</a>
+                    <% } %>
+                </li>
+            <% } else if(user.tipo === 'agente'){ %>
+                <li>
+                    <% if(currentRoute === '/agente'){ %> 
+                        Agente
+                    <% } else { %>
+                        <a href="/agente">Agente</a>
+                    <% } %>
+                </li>
+            <% } else if(user.tipo === 'cliente'){ %>
+                <li>
+                    <% if(currentRoute === '/cliente'){ %> 
+                        Cliente
+                    <% } else { %>
+                        <a href="/cliente">Cliente</a>
+                    <% } %>
+                </li>
+            <% } %>
+                <li>
+                    <% if(currentRoute === '/logout'){ %>
+                        Sair
+                    <% } else { %>
+                        <a href="/logout">Sair</a>
+                    <% } %>
+                </li>
+            <% } else { %>
+                <li>
+                    <% if(currentRoute === '/login'){ %>
+                        Entrar
+                    <% } else { %>
+                        <a href="/login">Entrar</a>
+                    <% } %>
+                </li>
+            <% } %>
+            <span class="material-symbols-outlined"">
+                search
+            </span>
+    </ul>
+</nav>

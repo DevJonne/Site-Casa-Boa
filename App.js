@@ -50,6 +50,7 @@ app.use(passport.session());
 
 //Variável global de sessão
 app.use((req, res, next) => {
+    res.locals.currentRoute = req.path;
     res.locals.user = req.user || null;
     next();
 })
@@ -65,7 +66,7 @@ app.use(express.static('public'));
 app.use('/', mainRoutes);
 app.use('/', clienteRoutes);
 app.use('/admin', adminRoutes);
-app.use('/cliente', clienteRoutes);
+app.use('/', clienteRoutes);
 
 const PORT = process.env.PORT || 3000;
 
