@@ -29,7 +29,8 @@
     border-radius: 10px;
 }
 .card-favoritos img{
-    width: 90%;
+    /*width: 90%;*/
+    height: 250px;
     margin-top: 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;

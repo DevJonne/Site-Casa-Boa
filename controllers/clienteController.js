@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const Cliente = require('../models/Cliente');
 const Imovel = require('../models/Imovel');
 const Favorito = require('../models/Favorito');
+const { detectarFormatoImagem } = require('../public/utils/imageUtils');
 
 exports.login = passport.authenticate('local', {
     successRedirect: '/cliente',
@@ -110,16 +111,27 @@ exports.renderCliente = (req, res) => {
 
     /**/Cliente.getIdClienteByUsuario(idUsuario, (err, idCliente) => {
         if(err){
-            console.error('Erro ao buscar o cliente: ', err);
+            //console.error('Erro ao buscar o cliente: ', err);
             return res.status(500).send('Erro ao buscar o cliente.');
         }
 
         Imovel.getFavoritosPorCliente(idCliente, (err, imoveisFavoritos) => {
             if(err){
-                console.error('Erro ao buscar imóveis favoritos: ', err);
+                //console.error('Erro ao buscar imóveis favoritos: ', err);
                 return res.status(500).send('Erro ao carregar imóveis favoritos.');
             }
-            console.log('Favoritos encontrados: ', imoveisFavoritos);
+            //convertendo a imagem para base64
+            imoveisFavoritos.forEach(imovel => {
+                if(imovel.imagem_principal){
+                    //imovel.imagemURL = `data:image/${detectarFormatoImagem(imovel.imagem_principal)};base64, ${imovel.imagem_principal.toString('base64')}`;
+                    imovel.imagemURL = `data:image/jpeg;base64, ${imovel.imagem_principal.toString('base64')}`;
+                }else{
+                    //URL padrão para quando não tiver imagem
+                    imovel.imagemURL = '../assets/images/imagem-padrao02.svg';
+                }
+            });
+
+            //console.log('Favoritos encontrados: ', imoveisFavoritos);
             res.render('cliente', { user: req.user, imoveisFavoritos });
         });
     });//

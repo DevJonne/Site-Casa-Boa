@@ -52,7 +52,7 @@ CREATE TABLE `Categorias` (
   `idCategorias` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idCategorias`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,7 +61,6 @@ CREATE TABLE `Categorias` (
 
 LOCK TABLES `Categorias` WRITE;
 /*!40000 ALTER TABLE `Categorias` DISABLE KEYS */;
-INSERT INTO `Categorias` VALUES (7,'Apartamentos'),(8,'Casas');
 /*!40000 ALTER TABLE `Categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,11 +76,11 @@ CREATE TABLE `Clientes` (
   `idUsuario` int DEFAULT NULL,
   `dataNascimento` date DEFAULT NULL,
   `endereco` varchar(255) NOT NULL,
-  `telefone` varchar(10) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`idCliente`),
   KEY `idUsuario` (`idUsuario`),
   CONSTRAINT `Clientes_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `Usuarios` (`idUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +89,6 @@ CREATE TABLE `Clientes` (
 
 LOCK TABLES `Clientes` WRITE;
 /*!40000 ALTER TABLE `Clientes` DISABLE KEYS */;
-INSERT INTO `Clientes` VALUES (7,32,'2024-11-09','Caique Parobé rs','e342342');
 /*!40000 ALTER TABLE `Clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +108,7 @@ CREATE TABLE `Favoritos` (
   KEY `idImovel` (`idImovel`),
   CONSTRAINT `Favoritos_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `Clientes` (`idCliente`),
   CONSTRAINT `Favoritos_ibfk_2` FOREIGN KEY (`idImovel`) REFERENCES `Imoveis` (`idImovel`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,12 +129,17 @@ DROP TABLE IF EXISTS `Imoveis`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Imoveis` (
   `idImovel` int NOT NULL AUTO_INCREMENT,
-  `Descricao` varchar(200) DEFAULT NULL,
+  `Descricao_previa` varchar(200) DEFAULT NULL,
   `idCategorias` int DEFAULT NULL,
+  `Preco` decimal(10,2) DEFAULT NULL,
+  `Endereco` varchar(255) DEFAULT NULL,
+  `Criado_em` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `imagem_principal` longblob,
+  `Descricao_detalhada` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`idImovel`),
   KEY `idCategorias` (`idCategorias`),
   CONSTRAINT `Imoveis_ibfk_1` FOREIGN KEY (`idCategorias`) REFERENCES `Categorias` (`idCategorias`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,7 +148,6 @@ CREATE TABLE `Imoveis` (
 
 LOCK TABLES `Imoveis` WRITE;
 /*!40000 ALTER TABLE `Imoveis` DISABLE KEYS */;
-INSERT INTO `Imoveis` VALUES (4,'Um belo apartamento com vista para o mar',7),(5,'Outro belo apartamento com vista para o mar',7),(6,'Uma bela casa com vista para o mar',8),(7,'Uma outra bela casa com vista para o mar',8),(8,'Apartamento com dois quartos, um banheiro e uma sala de estar localizado no centro da cidade',7),(9,'Apartamento com dois quartos, um banheiro e uma sala de estar mais retirado do centro da cidade',7),(10,'Uma casa pequena, porém muito bem construida...',8),(11,'Casa com amplo espaço para lazer...',8);
 /*!40000 ALTER TABLE `Imoveis` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,13 +161,13 @@ DROP TABLE IF EXISTS `Usuarios`;
 CREATE TABLE `Usuarios` (
   `idUsuario` int NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
-  `senha` varchar(40) NOT NULL,
-  `tipo` enum('administrador','cliente') NOT NULL,
+  `senha` varchar(60) DEFAULT NULL,
+  `tipo` enum('administrador','cliente','agente') NOT NULL,
   `nome` varchar(50) NOT NULL,
   `dataCriacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idUsuario`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +176,6 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES (32,'marlon@gamil.com','123','cliente','Marlon','2024-11-10 02:07:17');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -187,4 +188,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-10  9:34:34
+-- Dump completed on 2024-11-23 14:01:12

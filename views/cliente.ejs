@@ -45,15 +45,15 @@
                 </section>
                 <section class="favoritos">
                     <h3 class="titulo-favoritos">Meus imóveis favoritos</h3>
-                    <% console.log('Imóveis Favoritos:', imoveisFavoritos); %>
                     <% if(imoveisFavoritos && imoveisFavoritos.length > 0){ %> 
                         <div class="conteudo-favoritos">
                             <% imoveisFavoritos.forEach(imovel => { %> 
                                 <article class="card-favoritos">
-                                    <img src="../assets/images/imagem-exemplo.jpeg" 
-                                        alt="Imagem para visualização prévia">
+                                    <img src="<%= imovel.imagemURL %>" 
+                                        alt="Imagem para visualização prévia"> <!-- src="../assets/images/imagem-exemplo.jpeg" -->
                                     <div class="conteudo-card">
-                                        <p><%= imovel.Descricao %></p>
+                                        <!-- <p><%= imovel.Descricao %></p> -->
+                                        <p><%= imovel.Descricao_previa %></p> 
                                     </div>
                                     <div class="botoes">
                                         <button class="btn-card">Visitar</button>
