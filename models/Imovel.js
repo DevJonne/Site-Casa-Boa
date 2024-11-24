@@ -30,21 +30,6 @@ class Imovel {
             });
         });
     }
-
-    /*static getFavoritosPorCliente(idCliente){
-        return new Promise((resolve, reject) => {
-            const query = `
-                SELECT Imoveis.* FROM Imoveis
-                JOIN Favoritos ON Imoveis.idImovel = Favoritos.idImovel
-                WHERE Favoritos.idCliente = ?;
-            `;
-            db.query(query, [idCliente], (err, results) => {
-                if(err) return reject(err);
-                resolve(results);
-            });
-        });
-    }*/
-   
     static getFavoritosPorCliente(idCliente, callback){
         const query = `
             SELECT Imoveis.* FROM Imoveis
@@ -56,6 +41,14 @@ class Imovel {
             callback(null, results);
         });
     }
+    static getById(idImovel, callback){
+        const query = 'SELECT * FROM Imoveis WHERE idImovel = ?;';
+        db.query(query, [idImovel], (err, results) => {
+            if(err) return callback(err, null);
+            callback(null, results[0]);
+        });
+    }
+        
 }
 
 module.exports = Imovel;

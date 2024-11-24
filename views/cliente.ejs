@@ -31,13 +31,14 @@
                             <% imoveisFavoritos.forEach(imovel => { %> 
                                 <article class="card-favoritos">
                                     <img src="<%= imovel.imagemURL %>" 
-                                        alt="Imagem para visualização prévia"> <!-- src="../assets/images/imagem-exemplo.jpeg" -->
+                                        alt="Imagem para visualização prévia">
                                     <div class="conteudo-card">
-                                        <!-- <p><%= imovel.Descricao %></p> -->
                                         <p><%= imovel.Descricao_previa %></p> 
                                     </div>
                                     <div class="botoes">
-                                        <button class="btn-card">Visitar</button>
+                                        <button class="btn-card">
+                                            <a href="/visitar/<%= imovel.idImovel %>">Visitar</a>
+                                        </button>
                                         <form class="form-favoritar" action="/removerFavorito" method="POST">
                                             <input type="hidden" name="idImovel" value="<%= imovel.idImovel %>">
                                             <button type="submit">
@@ -47,7 +48,6 @@
                                             </button>
                                         </form>
                                     </div>
-                                    
                                 </article>
                             <% }); %>
                         </div>

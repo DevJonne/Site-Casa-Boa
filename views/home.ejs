@@ -45,7 +45,9 @@
                                                 <p><%= imovel.Descricao_previa %></p>
                                             </div>
                                             <div class="botoes">
-                                                <button class="btn-card">Visitar</button>
+                                                <button class="btn-card">
+                                                    <a href="/visitar/<%= imovel.idImovel %>">Visitar</a>
+                                                </button>
                                                 <% if(user && user.tipo === 'cliente'){ %>
                                                     <% const favoritado = imoveisFavoritos.some(fav => fav.idImovel === imovel.idImovel); %>
                                                     <% if(favoritado) { %> 

@@ -1,18 +1,8 @@
 const Imovel = require('../models/Imovel');
 const Cliente = require('../models/Cliente');
 const Favorito = require('../models/Favorito');
+const Imagem = require('../models/Imagem');
 const { detectarFormatoImagem } = require('../public/utils/imageUtils');
-
-/*exports.renderHome = (req, res) => {
-    Imovel.getCategoriasComImoveis()
-        .then((categoriasComImoveis) => {
-            res.render('home', { categoriasComImoveis });
-        })
-        .catch((err) => {
-            console.error('Erro ao buscar dados: ', err);
-            res.status(500).send('Erro ao carregar imóveis.');
-        });
-};*/
 
 exports.renderHome = (req, res) => {
     const user = req.user; // Usuário logado
@@ -66,4 +56,40 @@ exports.renderHome = (req, res) => {
         renderizarPagina();
     }
 };
+
+exports.renderImovelDetalhes = (req, res) => {
+    const idImovel = parseInt(req.params.idImovel);
+
+    if(isNaN(idImovel)){
+        return res.status(400).send('ID do imóvel inválido.');
+    }
+
+    Imovel.getById(idImovel, (err, imovel) => {
+        if(err){
+            console.error('Erro ao buscar imóvel: ', err);
+            return res.status(500).send('Erro ao buscar imóvel.');
+        }
+
+        if(!imovel){
+            return res.status(404).send('Imóvel não encontrado.');
+        }
+
+        Imagem.getBayImovelId(idImovel, (err, imagens) => {
+            if(err){
+                console.error('Erro ao buscar imagens do imóvel: ', err);
+                return res.status(500).send('Erro ao carregar imagens do imóvel.');
+            }
+
+            imagens = imagens.map((imagem) => {
+                return{
+                    url: `data:image/jpeg;base64, ${imagem.dados.toString('base64')}`,
+                    descricao: imagem.descricao || '',
+                };
+            });
+
+            console.log('Imagens do imóvel:', imagens);
+            res.render('visitar', { imovel, imagens });
+        });
+    });
+}
 
