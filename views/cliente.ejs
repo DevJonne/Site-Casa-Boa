@@ -36,9 +36,9 @@
                                         <p><%= imovel.Descricao_previa %></p> 
                                     </div>
                                     <div class="botoes">
-                                        <button class="btn-card">
+                                        <div class="btn-card">
                                             <a href="/visitar/<%= imovel.idImovel %>">Visitar</a>
-                                        </button>
+                                        </div>
                                         <form class="form-favoritar" action="/removerFavorito" method="POST">
                                             <input type="hidden" name="idImovel" value="<%= imovel.idImovel %>">
                                             <button type="submit">

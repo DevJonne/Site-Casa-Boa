@@ -108,6 +108,7 @@ exports.desfavoritarImovel = (req, res) => {
 
 exports.renderCliente = (req, res) => {
     const idUsuario = req.user.idUsuario;
+    //const previousUrl = req.headers.referer || '/cliente';
 
     /**/Cliente.getIdClienteByUsuario(idUsuario, (err, idCliente) => {
         if(err){
@@ -130,23 +131,9 @@ exports.renderCliente = (req, res) => {
                     imovel.imagemURL = '../assets/images/imagem-padrao02.svg';
                 }
             });
-
-            //console.log('Favoritos encontrados: ', imoveisFavoritos);
             res.render('cliente', { user: req.user, imoveisFavoritos });
         });
-    });//
-    /*Cliente.getIdClientePorIdUsuario(idUsuario)
-        .then(idCliente => {
-            return Imovel.getFavoritosPorCliente(idCliente);
-        })
-        .then(imoveisFavoritos => {
-            console.log('Favoritos encontrados:', imoveisFavoritos);
-            res.render('cliente', { user: req.user, imoveisFavoritos });
-        })
-        .catch(err => {
-            console.error('Erro ao buscar imóveis favoritos: ', err);
-            res.status(500).send('Erro ao carregar imóveis favoritos.');
-        })*/
+    });
 };
 
 exports.logout = (req, res, next) => {

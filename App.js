@@ -11,6 +11,7 @@ dotenv.config();
 const mainRoutes = require('./routes/mainRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const clienteRoutes = require('./routes/clienteRoutes');
+const detalhesRoutes = require('./routes/detalhesRoutes');
 
 const Usuario = require('./models/Usuario');
 

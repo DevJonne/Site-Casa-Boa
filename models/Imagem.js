@@ -1,7 +1,7 @@
 const db = require('../config/database');
 
 class Imagem {
-    static getBayImovelId(idImovel, callback){
+    static getByImovelId(idImovel, callback){
         const query = 'SELECT * FROM Imagens WHERE idImovel = ?;';
         db.query(query, [idImovel], (err, results) => {
             if(err) return callback(err, null);
@@ -9,3 +9,5 @@ class Imagem {
         });
     }
 }
+
+module.exports = Imagem;
