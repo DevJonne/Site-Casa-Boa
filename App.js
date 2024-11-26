@@ -68,6 +68,7 @@ app.use('/', mainRoutes);
 app.use('/', clienteRoutes);
 app.use('/admin', adminRoutes);
 app.use('/', clienteRoutes);
+app.use('/', detalhesRoutes);
 
 const PORT = process.env.PORT || 3000;
 
