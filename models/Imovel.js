@@ -48,7 +48,58 @@ class Imovel {
             callback(null, results[0]);
         });
     }
+    
+    static buscarImoveisPorTermo(termo, callback){
+        // Construir critérios de busca
+        const criterios = [];
+        const valores = [];
         
+        // Verificar se o termo corresponde a uma categoria
+        if(termo.match(/casa|apartamento|sitio/i)){
+            criterios.push(`idCategorias IN (SELECT idCategorias FROM Categorias WHERE Nome LIKE ?);`);
+            valores.push(`%${termo}%`);
+        }
+        // Verificar termos na descrição
+        if(termo.match(/\b(quartos|banheiros|ampla)\b/i)){
+            criterios.push(`Descricao_detalhada LIKE ?;`);
+            valores.push(`%${termo}%`);
+        }
+        // Verificar termos para preço
+        if(termo.match(/abaixo de (\d+)/i)){
+            const valor = parseFloat(RegExp.$1);
+            criterios.push(`Imoveis.Preco < ?`);
+            valores.push(valor);
+        }
+        if(termo.match(/acima de (\d+)/i)){
+            const valor = parseFloat(RegExp.$1);
+            criterios.push(`Preco > ?`);
+            valores.push(valor);
+        }
+        if(termo.match(/entre (\d+) e (\d+)/i)){
+            const min = parseFloat(RegExp.$1);
+            const max = parseFloat(RegExp.$2);
+            criterios.push(`Preco BETWEEN ? AND ?`);
+            valores.push(min, max);
+        }
+
+        // Caso nenhum critério tenha sido preenchido
+        if(criterios.length === 0){
+            return callback(null, []);
+        }
+
+        const query = `SELECT * FROM Imoveis WHERE ${criterios.join(' AND ')}`; 
+        
+        db.query(query, valores, (err, results) => {
+            if(err){
+                return callback(err, null);
+            }
+            const imoveisComImagens = results.map(imovel => ({
+                ...imovel,
+                imagemPrincipal: imovel.imagem_principal ? `data:image/jpeg;base64,${imovel.imagem_principal.toString('base64')}` : null
+            }));
+            callback(null, imoveisComImagens);
+        });
+    }
 }
 
 module.exports = Imovel;

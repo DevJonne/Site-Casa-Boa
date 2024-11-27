@@ -12,6 +12,7 @@ const mainRoutes = require('./routes/mainRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const clienteRoutes = require('./routes/clienteRoutes');
 const detalhesRoutes = require('./routes/detalhesRoutes');
+const buscarRoutes = require('./routes/buscarRoutes');
 
 const Usuario = require('./models/Usuario');
 
@@ -69,6 +70,7 @@ app.use('/', clienteRoutes);
 app.use('/admin', adminRoutes);
 app.use('/', clienteRoutes);
 app.use('/', detalhesRoutes);
+app.use('/', buscarRoutes);
 
 const PORT = process.env.PORT || 3000;
 
