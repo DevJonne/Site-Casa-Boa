@@ -21,16 +21,14 @@
             <div class="main-image"></div>
             <main class="main-content">
                 <h2>Painel do administrador</h2>
-                <nav>
-                    <ul>
-                        <li><a href="/admin/usuarios">Consultar Usuários</a></li>
-                        <li><a href="/admin/clientes">Consultar Clientes</a></li>
-                        <li><a href="/admin/agentes">Consultar Agentes</a></li>
-                        <li><a href="/admin/adicionarAgente">Adicionar Agente</a></li>
-                        <li><a href="/admin/categorias">Gerenciar Categorias</a></li>
-                        <li><a href="/admin/imoveis">Gerenciar Imóveis</a></li>
-                    </ul>
-                </nav>
+                <form action="/adicionarVendedor" method="POST">
+                    email
+                    senha
+                    nome 
+                    dataNascimento
+                    endereco
+                    telefone
+                </form>
             </main>
             <!--Footer-->
             <%- include('./layouts/footer'); %>

@@ -67,7 +67,7 @@ app.use(express.static('public'));
 //Rotas
 app.use('/', mainRoutes);
 app.use('/', clienteRoutes);
-app.use('/admin', adminRoutes);
+app.use('/', adminRoutes);
 app.use('/', clienteRoutes);
 app.use('/', detalhesRoutes);
 app.use('/', buscarRoutes);
