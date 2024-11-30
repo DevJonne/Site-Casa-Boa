@@ -25,7 +25,7 @@ class Cliente extends Usuario{
         });
     }
 
-    /**/static getIdClienteByUsuario(idUsuario, callback){
+    static getIdClienteByUsuario(idUsuario, callback){
         const query = 'SELECT idCliente FROM Clientes WHERE idUsuario = ?;';
         console.log('Executando query para getIdClienteByUsuario:', query);
         db.query(query, [idUsuario], (err, results) => {
@@ -40,38 +40,7 @@ class Cliente extends Usuario{
             console.log('Cliente encontrado: ', results[0]);
             callback(null, results[0].idCliente);
         });
-    }//
-
-    /*static getIdClientePorIdUsuario(idUsuario, callback){
-        return new Promise((resolve, reject) => {
-            const query = 'SELECT idCliente FROM Clientes WHERE idUsuario = ?;';
-            db.query(query, [idUsuario], (err, results) => {
-                if(err) return reject(err);
-                if(results.length === 0) return callback(new Error('Cliente não encontrado'));
-                resolve(results[0].idCliente);
-            });
-        });  
-    }//
-    //passar para o model Favorito posteriormente
-    /*static jaFavoritado(idCliente, idImovel, callback){
-        const query = `
-            SELECT COUNT(*) AS total FROM Favoritos
-            WHERE idCliente = ? AND idImovel = ?;
-        `;
-        db.query(query, [idCliente, idImovel], (err, results) => {
-            if(err) return callback(err, null);
-            callback(null, results[0].total > 0);
-        });
-    }*/
-
-    //passar para o model Favorito posteriormente
-    /*static addFavorito(idCliente, idImovel, callback){
-        const query = `INSERT INTO Favoritos (idCliente, idImovel) VALUES (?, ?);`;    
-        db.query(query, [idCliente, idImovel], (err, results) => {
-            if(err) return callback(err, null);
-            callback(null, results);    
-        });
-    }*/
+    }
 }
 
 module.exports = Cliente;

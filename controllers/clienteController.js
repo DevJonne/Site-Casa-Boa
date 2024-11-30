@@ -6,12 +6,45 @@ const Imovel = require('../models/Imovel');
 const Favorito = require('../models/Favorito');
 const { detectarFormatoImagem } = require('../public/utils/imageUtils');
 
-exports.login = passport.authenticate('local', {
-    successRedirect: '/cliente',
-    failureRedirect: '/entrar',
-    failureFlash: true
-});
+/*exports.login = (req, res, next) => {
+    passport.authenticate('local', {
+        successRedirect: '/cliente',
+        failureRedirect: '/login',
+        failureFlash: true
+    })(req, res, next);
+};*/
+exports.dashboard = (req, res) => {
+    // Verifica se o usuário está autenticado e é do tipo 'cliente'
+    if(!req.user || req.user.tipo !== 'cliente'){
+        return res.redirect('/login');
+    }
+    const idUsuario = req.user.idUsuario;
 
+    Cliente.getIdClienteByUsuario(idUsuario, (err, idCliente) => {
+        if(err){
+            //console.error('Erro ao buscar o cliente: ', err);
+            return res.status(500).send('Erro ao buscar o cliente.');
+        }
+
+        Imovel.getFavoritosPorCliente(idCliente, (err, imoveisFavoritos) => {
+            if(err){
+                console.error('Erro ao buscar imóveis favoritos: ', err);
+                return res.status(500).send('Erro ao carregar imóveis favoritos.');
+            }
+            //convertendo a imagem para base64
+            imoveisFavoritos.forEach(imovel => {
+                if(imovel.imagem_principal){
+                    //imovel.imagemURL = `data:image/${detectarFormatoImagem(imovel.imagem_principal)};base64, ${imovel.imagem_principal.toString('base64')}`;
+                    imovel.imagemURL = `data:image/jpeg;base64, ${imovel.imagem_principal.toString('base64')}`;
+                }else{
+                    //URL padrão para quando não tiver imagem
+                    imovel.imagemURL = '../assets/images/imagem-padrao02.svg';
+                }
+            });
+                res.render('cliente', { user: req.user, imoveisFavoritos });
+        });
+    });
+};
 exports.showLogin = (req, res) => {
     res.render('login');
 };
@@ -38,7 +71,7 @@ exports.register = (req, res) => {
 
         Cliente.createCliente(email, hashedPassword, nome, dataNascimento, endereco, telefone, () => {
             res.send('Cliente cadastrado com sucesso!');
-            //res.render('/cliente');
+            //res.redirect('/cliente');
         });
     });
 };
@@ -106,11 +139,11 @@ exports.desfavoritarImovel = (req, res) => {
     });
 };
 
-exports.renderCliente = (req, res) => {
+/*exports.renderCliente = (req, res) => {
     const idUsuario = req.user.idUsuario;
     //const previousUrl = req.headers.referer || '/cliente';
 
-    /**/Cliente.getIdClienteByUsuario(idUsuario, (err, idCliente) => {
+    Cliente.getIdClienteByUsuario(idUsuario, (err, idCliente) => {
         if(err){
             //console.error('Erro ao buscar o cliente: ', err);
             return res.status(500).send('Erro ao buscar o cliente.');
@@ -134,11 +167,5 @@ exports.renderCliente = (req, res) => {
             res.render('cliente', { user: req.user, imoveisFavoritos });
         });
     });
-};
+};*/
 
-exports.logout = (req, res, next) => {
-    req.logout((err) => {
-        if(err){ return next(err); }
-        res.redirect('/');
-    });
-};

@@ -15,7 +15,7 @@
             <% } %>
         </li>
         <% if(user){ %>
-            <% if(user.tipo === 'administrador'){ %>
+            <% if(user.tipo === 'admin'){ %>
                 <li>
                     <% if(currentRoute === '/admin'){ %> 
                         Admin
@@ -23,12 +23,12 @@
                         <a href="/admin">Admin</a>
                     <% } %>
                 </li>
-            <% } else if(user.tipo === 'agente'){ %>
+            <% } else if(user.tipo === 'vendedor'){ %>
                 <li>
-                    <% if(currentRoute === '/agente'){ %> 
-                        Agente
+                    <% if(currentRoute === '/vendedor'){ %> 
+                        Vendedor
                     <% } else { %>
-                        <a href="/agente">Agente</a>
+                        <a href="/vendedor">Vendedor</a>
                     <% } %>
                 </li>
             <% } else if(user.tipo === 'cliente'){ %>

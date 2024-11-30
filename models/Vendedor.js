@@ -8,6 +8,8 @@ class Vendedor extends Usuario{
         this.endereco = endereco;
         this.telefone = telefone;
     }
+
+    //corrigir possíveis erros desta função
     static createVendedor(email, senha, nome, dataNascimento, endereco, telefone, callback){
         Usuario.createUser(email, senha, 'cliente', nome, (userResult) => {
             console.log('Usuário cadastrado com sucesso!');

@@ -59,3 +59,14 @@ exports.renderHome = (req, res) => {
     }
 };
 
+exports.showLogin = (req, res) => {
+    res.render('login');
+};
+
+exports.logout = (req, res, next) => {
+    req.logout((err) => {
+        if(err){ return next(err); }
+        res.redirect('/');
+    });
+};
+
