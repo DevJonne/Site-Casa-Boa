@@ -4,7 +4,6 @@
     {
       "src": "App.js",
       "use": "@vercel/node"
-      "command": "npm install && npm run build"
     }
   ],
   "routes": [
