@@ -24,7 +24,7 @@ exports.renderHome = (req, res) => {
                     });
                 });
                 //console.log('Categorias com imóveis carregadas:', categoriasComImoveis);
-                res.render('/views/home.ejs', { categoriasComImoveis, imoveisFavoritos, user });
+                res.render('home', { categoriasComImoveis, imoveisFavoritos, user });
             })
             .catch((err) => {
                 console.error('Erro ao buscar dados: ', err);
