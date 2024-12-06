@@ -4,7 +4,7 @@ class Imovel {
     static getCategoriasComImoveis(){
         return new Promise((resolve, reject) => {
             //Busca todas as categorias
-            const categoriasQuery = 'SELECT * FROM Categorias;';
+            const categoriasQuery = 'SELECT * FROM categorias;';
             console.log('Executando query para getCategoriasComImoveis:', categoriasQuery);
             db.query(categoriasQuery, (err, categorias) => {
                 if(err){ 
