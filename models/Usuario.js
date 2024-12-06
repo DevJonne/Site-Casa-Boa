@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 const db = require('../config/database');
 
 class Usuario {
@@ -26,13 +27,22 @@ class Usuario {
     }
 
     static createUser(email, senha, tipo, nome, callback){
-        const query = 'INSERT INTO Usuarios (email, senha, tipo, nome) VALUES (?, ?, ?, ?);';
-
-        db.query(query, [email, senha, tipo, nome], (err, results) => {
-            if(err) throw err;
-            console.log('Usuario criado: ', results);
-            callback(results);
-        });
+        bcrypt.hash(senha, 10, (err, hashedPassword) => {
+            if (err) {
+                console.error('Erro ao criptografar a senha:', err);
+                return callback(err, null);
+            }
+            const query = 'INSERT INTO Usuarios (email, senha, tipo, nome) VALUES (?, ?, ?, ?);';
+            db.query(query, [email, hashedPassword, tipo, nome], (err, results) => {
+                //if(err) throw err;
+                if (err) {
+                    console.error('Erro ao inserir usuário no banco de dados:', err);
+                    return callback(err, null);
+                }
+                console.log('Usuario criado com sucesso: ', results);
+                callback(null, results);
+            });
+        })
     }
 }
 

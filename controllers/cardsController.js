@@ -6,9 +6,6 @@ const { detectarFormatoImagem } = require('../public/utils/imageUtils');
 
 exports.renderHome = (req, res) => {
     const user = req.user; // Usuário logado
-    console.log('Renderizando home para o usuário:', user);
-
-    //const prefiousUrl = req.headers.referer || '/';
 
     //Função auxiliar para renderizar a página
     const renderizarPagina = (imoveisFavoritos = []) => {
@@ -30,7 +27,7 @@ exports.renderHome = (req, res) => {
                 res.render('home', { categoriasComImoveis, imoveisFavoritos, user });
             })
             .catch((err) => {
-                //console.error('Erro ao buscar dados: ', err);
+                console.error('Erro ao buscar dados: ', err);
                 res.status(500).send('Erro ao carregar imóveis.');
             });
     };
@@ -58,15 +55,3 @@ exports.renderHome = (req, res) => {
         renderizarPagina();
     }
 };
-
-exports.showLogin = (req, res) => {
-    res.render('login');
-};
-
-exports.logout = (req, res, next) => {
-    req.logout((err) => {
-        if(err){ return next(err); }
-        res.redirect('/');
-    });
-};
-

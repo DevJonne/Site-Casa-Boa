@@ -45,9 +45,9 @@ exports.dashboard = (req, res) => {
         });
     });
 };
-exports.showLogin = (req, res) => {
+/*exports.showLogin = (req, res) => {
     res.render('login');
-};
+};*/
 
 exports.isAuthenticated = (req, res, next) => {
     if(req.isAuthenticated()){

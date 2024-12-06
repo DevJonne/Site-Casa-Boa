@@ -64,3 +64,29 @@ a{
     font-weight: bold;
     margin-right: 10px;
 }
+section.imovel-imagens{
+    max-width: 100%;
+    text-align: center;
+    padding: 10px 40px;
+}
+section.imovel-imagens h3{
+    margin: 20px 0;
+    font-size: 1.5em;
+    color: var(--btn-dark);
+    font-weight: bold;
+    text-shadow: #011 1px 0 10px;
+}
+.galeria{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+.imagem-item{
+    margin-right: 20px;
+}
+.imagem-item img{
+    width: 220px;
+    height: 150px;
+}

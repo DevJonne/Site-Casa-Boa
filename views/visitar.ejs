@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title>Ver mais</title>
         <!-- Estilos -->
         <link rel="stylesheet" href="/styles/GlobalStyle.css">
         <link rel="stylesheet" href="/styles/styleVisitar.css">
@@ -40,7 +40,8 @@
                         <div class="galeria">
                             <% imagens.forEach(imagem => { %> 
                                 <div class="imagem-item">
-                                    <img src="<%= imagem.URL %>" alt="Imagem do imóvel">
+                                    <!-- as imagens da tabela Imagens deveriam aparecer aqui -->
+                                    <img src="<%= imagem.url %>" alt="Imagem do imóvel">
                                 </div>
                             <% }); %> 
                         </div>    

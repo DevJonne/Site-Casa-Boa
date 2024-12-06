@@ -100,6 +100,16 @@ class Imovel {
             callback(null, imoveisComImagens);
         });
     }
+
+    // Método para adiconar um imóvel
+    static addImovelByCategoria(data, callback){
+        const { descricaoPrevia, idCategorias, preco, endereco, imagemPrincipal, descricaoDetalhada  } = data;
+        const query = `INSERT INTO Imoveis (Descricao_previa, idCategorias, Preco, Endereco, imagem_principal, Descricao_detalhada) values (?, ?, ?, ?, ?, ?);`;
+        db.query(query, [descricaoPrevia, idCategorias, preco, endereco, imagemPrincipal, descricaoDetalhada], (err, result) => {
+            if(err) return callback(err, null);
+            callback(null, result.insertId);
+        });
+    }
 }
 
 module.exports = Imovel;

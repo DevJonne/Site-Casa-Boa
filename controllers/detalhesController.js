@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const Imovel = require('../models/Imovel');
 const Imagem = require('../models/Imagem');
 
@@ -26,8 +28,18 @@ exports.renderImovelDetalhes = (req, res) => {
             }
 
             imagens = imagens.map((imagem) => {
+                const filePath = path.resolve(imagem.Caminho); // Caminho da imagem no sistema
+                let base64Data = '';
+
+                try {
+                    const fileBuffer = fs.readFileSync(filePath);
+                    base64Data = fileBuffer.toString('base64');
+                } catch (readErr) {
+                    console.log(`Erro ao ler a imagem: ${filePath}`, readErr);
+                }
+
                 return{
-                    url: `data:image/jpeg;base64, ${imagem.dados.toString('base64')}`,
+                    url: `data:image/jpeg;base64,${base64Data}`,
                     descricao: imagem.descricao || '',
                 };
             });
