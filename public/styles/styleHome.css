@@ -1,3 +1,17 @@
+.btn-actions {
+  width: 35vw;
+
+}
+.btn-actions button {
+    width: 250px;
+    margin: 0 10px;
+ 
+}
+.btn-actions :hover{
+   background-color: rgb(56, 165, 255);
+   color: white;
+   transition: 0.5s;
+}
 .btn-actions button a{
     color: var(--secondary-font);
     font-weight: bold;
@@ -93,7 +107,7 @@
     align-self: flex-end;
 }
 #sobre{
-    background-color: var(--btn-dark);
+	background: linear-gradient(to bottom, rgb(45, 161, 255), rgb(54, 173, 253));
     padding: 20px 0px;
     padding-left: 10px;
     display: flex;

@@ -1,12 +1,13 @@
 .main-image{
-    height: 559.1px;
+   display: none;
 }
 .main-content{
-
+    height: 100%;
 }
 .info-content{
     width: 100%;
-    background: rgba(84, 103, 197, 0.82);
+    height: 100vh;
+    background: linear-gradient(to bottom, rgb(45, 161, 255), rgb(54, 173, 253));
     padding: 35px 0px;
     display: flex;
     flex-direction: row;

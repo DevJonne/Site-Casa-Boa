@@ -4,6 +4,7 @@
     border: 0;
     text-decoration: none;
     list-style: none;
+
 }
 a{
     color: var(--primary-color);
@@ -11,6 +12,7 @@ a{
 .main-container{
     width: 100%;
     position: relative;
+   
 }
 .main-logo{
     position: relative;
@@ -18,11 +20,12 @@ a{
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
-    margin: 0 10%;
-    background-color: transparent;
+    width: 100%;
+	background: linear-gradient(to bottom, rgb(45, 161, 255), rgb(54, 173, 253));
     z-index: 3;
 }
 .logo img{
+    margin: 10px;
     height: 40px;
 }
 /* menu.ejs */
@@ -31,10 +34,13 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
+  
+}
+.navigation {
+    margin-right: 40px;
 }
 .navigation::after{
     content: '';
-    width: 100%;
     height: 2.2px;
     background-color:white;
     display: block;
@@ -42,51 +48,138 @@ a{
     position: absolute;
     bottom: 0;
     left: 0px;
+   
 }
 .navigation li:not(:last-child){
-    margin-right: 10px;
+    margin-right: 40px;
+    
+
+}
+.navigation li {
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+    align-content: center;
+}
+.navigation li:hover {
+    background-color: rgb(44, 127, 250);
+    transition: 0.5s;
 }
 .navigation .material-symbols-outlined {
     font-size: 23px;
 }
 /*filtro*/
-.filtro-container{
+#filtro-icon {
+    cursor: pointer;
+    font-size: 28px;
+    color: #ffffff;
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin-right: 10px;
+}
+
+#filtro-icon:hover {
+    transform: scale(1.2);
+    color: #ffffff;
+}
+
+/* Container do filtro */
+.filtro-container {
     position: absolute;
-    top: 50px;
-    left: 20pxx;
+    top: 60px;
+    left: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: var(--primary-font);
-    border: 1px solid var(--secondary-color);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
 }
-#filtro-container.hidden-filtro{
+
+.filtro-container.hidden-filtro {
     display: none;
 }
-#imoveis-pesquisa{
+
+/* Input de filtro */
+#filtro-input {
+    flex: 1;
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#filtro-input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 4px rgba(74, 144, 226, 0.5);
+}
+
+/* Botão de pesquisa */
+#filtro-btn {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#filtro-btn:hover {
+    background-color: #357ABD;
+    transform: scale(1.05);
+}
+
+/* Seção de pesquisa */
+#imoveis-pesquisa {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.97);
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 20px;
     z-index: 10;
+    overflow-y: auto;
 }
-#imoveis-pesquisa.hidden-filtro{
+
+#imoveis-pesquisa.hidden-filtro {
     display: none;
 }
-#resultado-pesquisa{
+
+/* Botão de fechar pesquisa */
+#fechar-pesquisa {
+    align-self: flex-end;
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#fechar-pesquisa:hover {
+    background-color: #d32f2f;
+}
+
+/* Resultados da pesquisa */
+#resultado-pesquisa {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    color: black;
+    gap: 12px;
+    color: #333;
+    font-size: 14px;
 }
 /* fim menu.ejs */
 .main-image{
@@ -136,9 +229,9 @@ a{
 }
 footer {
 	color: #fff;
-	padding: 20px;
 	text-align: center;
-	background: linear-gradient(to bottom, #648dc7, lightgreen);
+	background: linear-gradient(to bottom, rgb(45, 161, 255), rgb(54, 173, 253));
+    padding: 20px;
 }
 .footer ul {
 	list-style: none;
