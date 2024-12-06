@@ -30,7 +30,7 @@ class Cliente extends Usuario{
         console.log('Executando query para getIdClienteByUsuario:', query);
         db.query(query, [idUsuario], (err, results) => {
             if(err){
-                console.error('Erro na query getIdClienteByUsuario:', err); 
+                console.error('Erro na query getIdclienteByUsuario:', err); 
                 return callback(err, null);
             }
             if(results.length === 0){

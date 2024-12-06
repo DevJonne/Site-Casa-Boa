@@ -20,7 +20,7 @@ class Vendedor extends Usuario{
             const idUsuario = userResult.insertId;
             console.log('Usuário cadastrado com sucesso! ID: ', idUsuario);
 
-            const query = 'INSERT INTO Vendedores (idUsuario, dataNascimento, endereco, telefone) VALUES (?, ?, ?, ?);';
+            const query = 'INSERT INTO vendedores (idusuario, datanascimento, endereco, telefone) VALUES (?, ?, ?, ?);';
 
             db.query(query, [idUsuario, dataNascimento, endereco, telefone], (err, results) => {
                 if(err){ 

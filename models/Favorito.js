@@ -2,7 +2,7 @@ const db = require('../config/database');
 
 class Favorito{
     static getFavoritosPorCliente(idCliente, callback){
-        const query = `SELECT idImovel FROM Favoritos WHERE idCliente = ?;`;
+        const query = `SELECT idimovel FROM Favoritos WHERE idCliente = ?;`;
         console.log('Executando query para getFavoritosPorCliente:', query);
         db.query(query, [idCliente], (err, results) => {
             if(err){ 
@@ -15,8 +15,8 @@ class Favorito{
     }   
 
     static jaFavoritado(idCliente, idImovel, callback){
-        const query = `SELECT COUNT(*) AS total FROM Favoritos
-            WHERE idCliente = ? AND idImovel = ?;`;
+        const query = `SELECT COUNT(*) AS total FROM favoritos
+            WHERE idcliente = ? AND idimovel = ?;`;
         db.query(query, [idCliente, idImovel], (err, results) => {
             if(err) return callback(err, null);
             callback(null, results[0].total > 0);
@@ -24,7 +24,7 @@ class Favorito{
     }
 
     static addFavorito(idCliente, idImovel, callback){
-        const query = `INSERT INTO Favoritos (idCliente, idImovel) VALUES (?, ?);`;
+        const query = `INSERT INTO favoritos (idcliente, idImovel) VALUES (?, ?);`;
         db.query(query, [idCliente, idImovel], (err, results) => {
             if(err) return callback(err, null);
             callback(null, results);
@@ -32,7 +32,7 @@ class Favorito{
     }
 
     static removerFavorito(idCliente, idImovel, callback){
-        const query = `DELETE FROM Favoritos WHERE idCliente = ? AND idImovel = ?;`;
+        const query = `DELETE FROM favoritos WHERE idcliente = ? AND idimovel = ?;`;
         db.query(query, [idCliente, idImovel], (err, results) => {
             if(err) return callback(err, null);
             callback(null, results);

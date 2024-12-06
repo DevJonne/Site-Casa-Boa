@@ -2,7 +2,7 @@ const db = require('../config/database');
 
 class Imagem {
     static getByImovelId(idImovel, callback){
-        const query = 'SELECT * FROM Imagens WHERE idImovel = ?;';
+        const query = 'SELECT * FROM imagens WHERE idimovel = ?;';
         db.query(query, [idImovel], (err, results) => {
             if(err) return callback(err, null);
             callback(null, results);
@@ -10,7 +10,7 @@ class Imagem {
     }
 
     static addImagens(idImovel, imagens, callback){
-        const query = `INSERT INTO Imagens (idImovel, Caminho) VALUES ?;`;
+        const query = `INSERT INTO imagens (idimovel, caminho) VALUES ?;`;
         const values = imagens.map(imagem => [idImovel, imagem]);
 
         db.query(query, [values], (err, result) => {
