@@ -1,8 +1,10 @@
 .main-image{
-height: 100vh;
+height: 135vh;
 }
 .info-content{
     height: 90vh;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 #form{
     position: relative;

@@ -15,7 +15,7 @@ class Cliente extends Usuario{
             const idUsuario = userResult.insertId;
             console.log('id do usuario: ', idUsuario);
 
-            const query = 'INSERT INTO clientes (idusuario, datanascimento, endereco, telefone) VALUES (?, ?, ?, ?);';
+            const query = 'INSERT INTO clientes (idUsuario, dataNascimento, endereco, telefone) VALUES (?, ?, ?, ?);';
 
             db.query(query, [idUsuario, dataNascimento, endereco, telefone], (err, results) => {
                 if(err) throw err;
