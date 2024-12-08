@@ -1,6 +1,3 @@
-.main-image{
-    height: 120vh;
-}
 .info-content{
     height: 540px;
 }
@@ -10,7 +7,4 @@
     background: -webkit-linear-gradient(-45deg, #ffce51, #ff7253, #fd5754);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-footer{
-    margin-top: 16px;
 }

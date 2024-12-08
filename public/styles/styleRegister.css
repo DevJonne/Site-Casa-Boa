@@ -1,10 +1,9 @@
 .main-image{
-height: 135vh;
+    height: 100%;
 }
 .info-content{
     height: 90vh;
-    margin-top: 100px;
-    margin-bottom: 100px;
+
 }
 #form{
     position: relative;
@@ -70,7 +69,4 @@ height: 135vh;
 }
 #btn button:hover, #btn a:hover{
     background: linear-gradient(-45deg, #eec04c, #ec7054, #ee5a57);
-}
-footer{
-    margin-top: 16.3px;
 }

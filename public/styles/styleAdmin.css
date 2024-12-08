@@ -1,8 +1,15 @@
 .main-image{
-    height: 953px;
+    height: 100%;
+    margin: 0px;
 }
 .info-content{
-    height: 126px;
+    height: 100px;
+    margin: 0px;
+    
+}
+
+form {
+    margin-bottom: 100px;
 }
 .add-vendedor{
     color: var(--primary-font);
@@ -12,5 +19,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 94px;
+}
+footer {
+
 }

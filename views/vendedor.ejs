@@ -26,7 +26,6 @@
         <main class="main-content">
             <section class="info-content">
 
-            
             <section class="add-categoria">
                 <% if(error_msg) { %> 
                     <p class="error-message"><%= error_msg %></p>
@@ -69,8 +68,9 @@
                     </div>
                     <label for="preco">Preço</label>
                     <div class="input">
-                        <input id="preco" name="preco" type="number" step="0.01" required>
+                        <input id="preco" name="preco" type="text" oninput="formatarPreco(this)" required placeholder="Digite o preço">
                     </div>
+                    <script src="/public/scripts/formatarpreco.js"></script>
                     <label for="endereco">Endereço</label>
                     <div class="input">
                         <input id="endereco" name="endereco" type="text">
@@ -92,9 +92,10 @@
             </section>
         </section>
         </main>
+   
         <!--Footer-->
         <%- include('./layouts/footer'); %>
         <!--Footer-->
-    </div> 
+    </div>
 </body>
 </html>

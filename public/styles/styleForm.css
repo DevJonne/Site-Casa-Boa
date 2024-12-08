@@ -1,4 +1,6 @@
-
+.main-image{
+    height: 100vh;
+}
 .info-content {
     height: 100vh;
     margin-top: 5%;
