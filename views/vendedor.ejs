@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/styles/GlobalStyle.css">
     <link rel="stylesheet" href="/styles/mainStyle.css">
     <link rel="stylesheet" href="/styles/styleForm.css">
+    <link rel="stylesheet" href="/styles/styleVendedor.css">
+
     <!-- Estilo Personalizado
      <link rel="stylesheet" href="/styles/styleLogin.css"> -->
     <!-- Google material icons -->
@@ -23,8 +25,8 @@
         <div class="main-image"></div>
         <main class="main-content">
             <section class="info-content">
-                <h2>Painel do vendedor</h2>
-            </section>
+
+            
             <section class="add-categoria">
                 <% if(error_msg) { %> 
                     <p class="error-message"><%= error_msg %></p>
@@ -88,6 +90,7 @@
                     <div id="btn"><button type="submit">Adicionar Imóvel</button></div>
                 </form>
             </section>
+        </section>
         </main>
         <!--Footer-->
         <%- include('./layouts/footer'); %>

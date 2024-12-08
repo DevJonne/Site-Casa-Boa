@@ -15,7 +15,7 @@ class Cliente extends Usuario{
             const idUsuario = userResult.insertId;
             console.log('id do usuario: ', idUsuario);
 
-            const query = 'INSERT INTO clientes (idUsuario, dataNascimento, endereco, telefone) VALUES (?, ?, ?, ?);';
+            const query = 'INSERT INTO Clientes (idUsuario, dataNascimento, endereco, telefone) VALUES (?, ?, ?, ?);';
 
             db.query(query, [idUsuario, dataNascimento, endereco, telefone], (err, results) => {
                 if(err) throw err;
@@ -26,7 +26,7 @@ class Cliente extends Usuario{
     }
 
     static getIdClienteByUsuario(idUsuario, callback){
-        const query = 'SELECT idcliente FROM clientes WHERE idUsuario = ?;';
+        const query = 'SELECT idCliente FROM Clientes WHERE idUsuario = ?;';
         console.log('Executando query para getIdClienteByUsuario:', query);
         db.query(query, [idUsuario], (err, results) => {
             if(err){

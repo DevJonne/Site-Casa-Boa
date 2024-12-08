@@ -1,7 +1,7 @@
 const db = require('../config/database');
 
 exports.getAllCategorias = (callback) => {
-    const query = 'SELECT * FROM categorias;';
+    const query = 'SELECT * FROM Categorias;';
 
     db.query(query, (err, results) => {
         if(err) throw err;
@@ -10,7 +10,7 @@ exports.getAllCategorias = (callback) => {
 }; 
 
 exports.createCategoria = (nome, callback) => {
-    const query = 'INSERT INTO categorias (Nome) VALUES(?);';
+    const query = 'INSERT INTO Categorias (Nome) VALUES(?);';
     db.query(query, [nome], (err, result) => {
         if(err){
             callback(err, null);

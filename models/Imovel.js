@@ -4,7 +4,7 @@ class Imovel {
     static getCategoriasComImoveis(){
         return new Promise((resolve, reject) => {
             //Busca todas as categorias
-            const categoriasQuery = 'SELECT * FROM categorias;';
+            const categoriasQuery = 'SELECT * FROM Categorias;';
             console.log('Executando query para getCategoriasComImoveis:', categoriasQuery);
             db.query(categoriasQuery, (err, categorias) => {
                 if(err){ 
@@ -14,7 +14,7 @@ class Imovel {
 
                 //Para cada categoria, busca os imóveis relacionados
                 const promises = categorias.map(categoria => {
-                    const imoveisQuery = `SELECT * FROM imoveis WHERE idcategorias = ?;`;
+                    const imoveisQuery = `SELECT * FROM Imoveis WHERE idCategorias = ?;`;
 
                     return new Promise((resolve, reject) => {
                         db.query(imoveisQuery, [categoria.idCategorias], (err, imoveis) => {

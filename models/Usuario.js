@@ -10,7 +10,7 @@ class Usuario {
     }
 
     static findByEmail(email, callback){
-        const query = 'SELECT * FROM usuarios WHERE email = ?;';
+        const query = 'SELECT * FROM Usuarios WHERE email = ?;';
 
         db.query(query, [email], (err, results) => {
             if(err) throw err;
@@ -19,7 +19,7 @@ class Usuario {
     }
 
     static findById(id, callback){
-        const query = 'SELECT * FROM usuarios WHERE idusuario = ?;';
+        const query = 'SELECT * FROM Usuarios WHERE idUsuario = ?;';
         db.query(query, [id], (err, results) => {
             if(err) return callback(err);
             callback(null, results[0]);
@@ -32,7 +32,7 @@ class Usuario {
                 console.error('Erro ao criptografar a senha:', err);
                 return callback(err, null);
             }
-            const query = 'INSERT INTO usuarios (email, senha, tipo, nome) VALUES (?, ?, ?, ?);';
+            const query = 'INSERT INTO Usuarios (email, senha, tipo, nome) VALUES (?, ?, ?, ?);';
             db.query(query, [email, hashedPassword, tipo, nome], (err, results) => {
                 //if(err) throw err;
                 if (err) {
