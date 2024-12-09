@@ -9,18 +9,25 @@ class Cliente extends Usuario{
         this.telefone = telefone;
     }
     
-    static createCliente(email, senha, nome, dataNascimento, endereco, telefone, callback){
-        Usuario.createUser(email, senha, 'cliente', nome, (userResult) => {
-            console.log('Usuário cadastrado com sucesso!');
+    static createCliente(email, senha, nome, dataNascimento, endereco, telefone, callback) {
+        Usuario.createUser(email, senha, 'cliente', nome, (err, userResult) => {
+            if (err) {
+                console.error('Erro ao criar usuário:', err);
+                return callback(err, null);
+            }
+    
             const idUsuario = userResult.insertId;
-            console.log('id do usuario: ', idUsuario);
-
+            console.log('Usuário cadastrado com sucesso! ID:', idUsuario);
+    
             const query = 'INSERT INTO Clientes (idUsuario, dataNascimento, endereco, telefone) VALUES (?, ?, ?, ?);';
-
+    
             db.query(query, [idUsuario, dataNascimento, endereco, telefone], (err, results) => {
-                if(err) throw err;
-                console.log('Cliente criado: ', results);
-                callback(results);
+                if (err) {
+                    console.error('Erro ao criar cliente:', err);
+                    return callback(err, null);
+                }
+                console.log('Cliente criado com sucesso:', results);
+                callback(null, results);
             });
         });
     }
