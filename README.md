@@ -2,7 +2,6 @@
 ![Status Commits](https://github-readme-stats.vercel.app/api?username=DevJonne&show_icons=true&theme=radical)
 ![Linguagens mais Ultilizadas](https://github-readme-stats.vercel.app/api/top-langs/?username=DevJonne&layout=compact)
 
-Link Site: https://devjonne.github.io/Site-Casa-Boa/
 
 # Projeto Casa Boa
 
@@ -35,13 +34,12 @@ e Node.Js;
 
 # Comunicação Backlog e desenvolvimento
 
-  O grupo trabalhará com a metodologia Scrum, gestão ágil, visando organização, transparência, inspeção e adaptação.
+  O grupo trabalhará com a metodologia Kanban, metodologia de gestão visual de projetos que ajuda a melhorar a eficiência e produtividade de uma organização.
   Reuniões e comunicação serão realizadas através da plataforma do Discord, onde o grupo 
 formado por 5 alunos, irá discutir sobre como está o desenvolvimeto do trabalho, quais dificuldades encontram 
 para desenvolver as tarefas realizadas e o que precisa ser melhorado e desenvolvido nas semanas seguintes.
   
-  Trello escolhido como  ferramenta de gestão e projetos de tarefas, para intuito de organizar as sprints, colocando em backlog
-  tudo aquilo que seria desenvolvido no projeto, a ponto de notificar a colocação e prioridade de cada processo;
+  Trello escolhido como ferramenta de gestão e projetos de tarefas, para intuito de organizar , em um quadro colocando em backlog tudo aquilo que seria desenvolvido no projeto, a ponto de notificar a colocação e prioridade de cada processo;
   Visando organização e distribuição a cada tarefa, para os indivíduos do grupo.
   
   
@@ -63,21 +61,7 @@ para desenvolver as tarefas realizadas e o que precisa ser melhorado e desenvolv
 ## MySQL
 ## Express
 
-### Etapas
 
-```bash
-npm install
-```
-
-## Instrução de uso
-
-1. Abra o localhost:3000
-2. Faça login
-3. Use chatbot
-
-```bash
-npm install
-```
 ## Licença
 
 ### Permissão para uso comercial
